@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/11 17:08:14 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:30:06 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,25 @@ std::string Contact::getDarkestsecret()
 
 void    Contact::setFirstname(std::string firstName)
 {
-    
+    this->firstName = firstName;
 }
 
 void    Contact::setLastname(std::string lastName)
-{}
+{
+    this->lastName = lastName;
+}
 
 void    Contact::setNickname(std::string nickName)
-{}
+{
+    this->nickName = nickName;
+}
 
 void    Contact::setPhonenbr(std::string phoneNbr)
-{}
+{
+    this->phoneNbr = phoneNbr;
+}
 
 void    Contact::setDarkestsecret(std::string darkestSecret)
-{}
+{
+    this->darkestSecret = darkestSecret;
+}
