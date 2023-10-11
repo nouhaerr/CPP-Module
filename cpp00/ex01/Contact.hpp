@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:46:32 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/11 15:10:55 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:04:24 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Contact {
         std::string firstName;
         std::string lastName;
         std::string nickName;
-        int			phoneNbr;
+        std::string	phoneNbr;
 		std::string	darkestSecret;
     
 	public:
@@ -30,12 +30,12 @@ class Contact {
 		std::string getFirstname();
 		std::string getLastname();
 		std::string getNickname();
-		std::string getPhonenbr();
+		std::string	getPhonenbr();
 		std::string getDarkestsecret();
 		void		setFirstname(std::string firstName);
 		void		setLastname(std::string lastName);
 		void		setNickname(std::string nickName);
-		void		setPhonenbr(int phoneNbr);
+		void		setPhonenbr(std::string phoneNbr);
 		void		setDarkestsecret(std::string darkestSecret);
 };
 
