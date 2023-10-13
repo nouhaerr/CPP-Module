@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 14:46:51 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/10/11 14:48:36 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/10/13 12:10:45 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CPP = c++
 CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
 CSRCS = Contact.cpp \
-		PhoneBook.cpp
+		PhoneBook.cpp \
+		main.cpp
 
 OBJ = $(CSRCS:.c=.o)
 

@@ -6,16 +6,16 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:42:29 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/11 14:42:32 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:13:45 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "megaphone.hpp"
+# include <ctype.h>
 #include <iostream>
 
 int main(int ac, char **av)
 {
-    int i = 1;
+    int i = 0;
     int j;
     char ch;
 
@@ -23,7 +23,7 @@ int main(int ac, char **av)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     else
         {
-            while (av[i])
+            while (av[++i])
             {
                 j = 0;
                 while (av[i][j])
@@ -32,7 +32,6 @@ int main(int ac, char **av)
                     std::cout << ch;
                 }
                 std::cout << " ";
-                i++;
             }
             std::cout << std::endl;
         }
