@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:46:32 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/11 17:04:24 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:54:06 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Contact {
 		std::string	darkestSecret;
     
 	public:
-		Contact();
-		~Contact();
+		Contact(void);
+		~Contact(void);
 		std::string getFirstname();
 		std::string getLastname();
 		std::string getNickname();
