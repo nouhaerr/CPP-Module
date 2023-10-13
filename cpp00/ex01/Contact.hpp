@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:46:32 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/13 13:54:06 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:27:00 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Contact {
         std::string nickName;
         std::string	phoneNbr;
 		std::string	darkestSecret;
+		// int			index;
     
 	public:
 		Contact(void);

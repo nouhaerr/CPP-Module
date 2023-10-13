@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/13 14:07:03 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:25:43 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ PhoneBook::PhoneBook(void)
 
 PhoneBook::~PhoneBook(void)
 {
-    std::cout << "\n Destructor executed" << std::endl;
+    std::cout << "\n PhoneBook Destructor executed" << std::endl;
 }
 
 void	PhoneBook::addContact()
