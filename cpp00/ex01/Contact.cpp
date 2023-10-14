@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/14 18:47:34 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/14 21:31:45 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,17 @@ void    Contact::setDarkestsecret(std::string darkestSecret)
 int	isnumber(std::string strnbr)
 {
 	int	i = 0;
+	int	j = 0;
 
 	while (strnbr[i])
 	{
 		if (strnbr[i] >= 48 && strnbr[i] <= 57)
-			return (1);
+			j++;
 		else
 			return (0);
+		i++;
 	}
+	if (j)
+		return (1);
 	return (0);
 }
