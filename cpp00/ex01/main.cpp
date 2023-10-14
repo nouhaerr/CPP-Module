@@ -24,7 +24,9 @@ int main(void)
 	{
 		std::cout << "-----Phonebook-----" << std::endl;
 		getline(std::cin, cmd);
-		if (cmd == "ADD")
+		if (std::cin.eof())
+			break ;
+	if (cmd == "ADD")
 			phoneBook1.addContact();
 		else if (cmd == "SEARCH")
 			phoneBook1.searchContact();
