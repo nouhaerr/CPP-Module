@@ -18,7 +18,7 @@ CSRCS = Contact.cpp \
 		PhoneBook.cpp \
 		main.cpp
 
-OBJ = $(CSRCS:.c=.o)
+OBJ = $(CSRCS:.cpp=.o)
 
 NAME = phoneBook
 
