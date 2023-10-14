@@ -22,7 +22,7 @@ int main(void)
 
 	while (1)
 	{
-		std::cout << "Enter a Command (ADD, SEARCH, EXIT):" << std::endl;
+		std::cout << "-----Phonebook-----" << std::endl;
 		getline(std::cin, cmd);
 		if (cmd == "ADD")
 			phoneBook1.addContact();
