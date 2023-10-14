@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:49:44 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/13 13:53:39 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:49:59 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ class PhoneBook {
 
     private:
         Contact contact[8];
-    
+        int			index;
+
     public:
         PhoneBook(void);
         ~PhoneBook(void);

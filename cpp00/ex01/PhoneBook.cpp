@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/14 18:37:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:50:48 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ void	PhoneBook::addContact()
 	std::string	nickName;
 	std::string	phonneNbr;
 	std::string	darkestSecret;
-	int			index;
+	// int			index;
 
-	index = 0;
+	this->index = 0;
 	std::cout<< "Enter the contact informations:" << std::endl;
 	
-	if (index > 8)
+	if (this->index > 2)
 	{
 		std::cout << "more than 8contacts";
 	}
-	contact[index].setFirstname(firstName);
-	contact[index].setLastname(lastName);
-	contact[index].setNickname(nickName);
-	contact[index].setPhonenbr(phonneNbr);
-	contact[index].setDarkestsecret(darkestSecret);
-	index++;
+	contact[this->index].setFirstname(firstName);
+	contact[this->index].setLastname(lastName);
+	contact[this->index].setNickname(nickName);
+	contact[this->index].setPhonenbr(phonneNbr);
+	contact[this->index].setDarkestsecret(darkestSecret);
+	this->index++;
 }
 
 void	PhoneBook::searchContact()
