@@ -16,7 +16,7 @@ CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
 CSRCS = megaphone.cpp
 
-OBJ = $(CSRCS:.c=.o)
+OBJ = $(CSRCS:.cpp=.o)
 
 NAME = megaphone
 
