@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/14 17:38:44 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:47:34 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,39 +51,73 @@ std::string Contact::getDarkestsecret()
 void    Contact::setFirstname(std::string firstName)
 {
 	std::cout << "First name: ";
-	std::cin >> firstName;
-	std::cout << std::endl;
+	getline(std::cin, firstName);
+	while (firstName.empty())
+	{
+		std::cout << "Please enter a valid first name: ";
+		std::getline(std::cin, firstName);
+	}
 	this->firstName = firstName;
 }
 
 void    Contact::setLastname(std::string lastName)
 {
 	std::cout << "Last name: ";
-	std::cin >> lastName;
-	std::cout << std::endl;
+	getline(std::cin, lastName);
+	while (lastName.empty())
+	{
+		std::cout << "Please enter a valid last name: ";
+		std::getline(std::cin, lastName);
+	}
 	this->lastName = lastName;
 }
 
 void    Contact::setNickname(std::string nickName)
 {
 	std::cout << "Nickname: ";
-	std::cin >> nickName;
-	std::cout << std::endl;
+	getline(std::cin, nickName);
+	while (nickName.empty())
+	{
+		std::cout << "Please enter a valid nickname: ";
+		std::getline(std::cin, nickName);
+	}
 	this->nickName = nickName;
 }
 
 void    Contact::setPhonenbr(std::string phoneNbr)
 {
 	std::cout << "Phone number: ";
-	std::cin >> phoneNbr;
-	std::cout << std::endl;
+	getline(std::cin, phoneNbr);
+	while (phoneNbr.empty() || !isnumber(phoneNbr))
+	{
+		std::cout << "Please enter a valid phone number: ";
+		std::getline(std::cin, phoneNbr);
+	}
 	this->phoneNbr = phoneNbr;
 }
 
 void    Contact::setDarkestsecret(std::string darkestSecret)
 {
 	std::cout << "Darkest secret: ";
-	std::cin >> darkestSecret;
-	std::cout << std::endl;
+	getline(std::cin, darkestSecret);
+	while (darkestSecret.empty())
+	{
+		std::cout << "Please enter a valid darkest secret: ";
+		std::getline(std::cin, darkestSecret);
+	}
 	this->darkestSecret = darkestSecret;
+}
+
+int	isnumber(std::string strnbr)
+{
+	int	i = 0;
+
+	while (strnbr[i])
+	{
+		if (strnbr[i] >= 48 && strnbr[i] <= 57)
+			return (1);
+		else
+			return (0);
+	}
+	return (0);
 }
