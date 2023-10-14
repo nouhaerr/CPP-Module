@@ -35,7 +35,6 @@ int main(void)
 		else
 		{
 			std::cout << "Please enter one of these 3 commands (ADD, SEARCH, EXIT):" << std::endl;
-			getline(std::cin, cmd);
 		}
 	}
     return (0);
