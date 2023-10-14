@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 14:15:21 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/10/11 14:48:41 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/10/14 17:48:48 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
 CSRCS = megaphone.cpp
 
-OBJ = $(CSRCS:.c=.o)
+OBJ = $(CSRCS:.cpp=.o)
 
 NAME = megaphone
 

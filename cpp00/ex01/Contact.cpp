@@ -6,18 +6,21 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/13 13:54:27 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/10/14 17:38:44 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact(void)
-{}
+{
+	return ;
+}
 
 Contact::~Contact(void)
 {
     std::cout << "\n Destructor executed" << std::endl;
+	return ;
 }
 
 std::string Contact::getFirstname()

@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 14:46:51 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/10/13 12:10:45 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/10/14 17:48:40 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CSRCS = Contact.cpp \
 		PhoneBook.cpp \
 		main.cpp
 
-OBJ = $(CSRCS:.c=.o)
+OBJ = $(CSRCS:.cpp=.o)
 
 NAME = phoneBook
 
