@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/15 21:06:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/01 23:18:29 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ std::string Contact::getPhonenbr()
 std::string Contact::getDarkestsecret()
 {
 	return this->darkestSecret;
+}
+
+int	Contact::get_index()
+{
+	this->index = 0;
+	return (this->index);
 }
 
 void    Contact::setFirstname(std::string firstName)
