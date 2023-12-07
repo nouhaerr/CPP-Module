@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/07 01:55:01 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:31:27 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,11 @@ void	Contact::setIndex(int num)
 void	Contact::incrementIndex()
 {
 	index += 1;
+}
+
+bool Contact::isValid() const
+{
+	return !firstName.empty() && !lastName.empty() && !nickName.empty() && !phoneNbr.empty() && !darkestSecret.empty();
 }
 
 int	isnumber(std::string strnbr)

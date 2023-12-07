@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:49:44 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/07 01:52:21 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:29:38 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ class PhoneBook {
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		std::string truncateString(const std::string str, std::string::size_type maxLength);
 		void addContact();
 		void searchContact();
+		std::string truncateString(const std::string str, std::string::size_type maxLength);
+		int		searchByIndex(int idx);
+		void	displayContactInfo(int foundIndex);
 };
 
 #endif

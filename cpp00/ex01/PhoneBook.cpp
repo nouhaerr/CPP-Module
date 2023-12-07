@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/07 01:57:34 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:45:43 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	PhoneBook::addContact()
 	int			index;
 
 	index = Contact::getIndex();
-	if (index >= 2)
+	if (index >= 8)
 	{
-		std::cout << "more than 8contacts";
+		std::cout << "more than 8contacts ";
 		Contact::setIndex(0);
 		index = Contact::getIndex();
 	}
@@ -61,9 +61,30 @@ std::string PhoneBook::truncateString(const std::string str, std::string::size_t
     return str;
 }
 
+int		PhoneBook::searchByIndex(int idx)
+{
+	if (idx >= 0 && idx <= 7)
+	{
+		if (this->contact[idx].isValid())
+			return (idx);
+	}
+	return (-1);
+}
+
+void	PhoneBook::displayContactInfo(int foundIndex)
+{
+	std::cout << "Index:" << foundIndex << std::endl;
+	std::cout << "First Name:" << this->contact[foundIndex].getFirstname() << std::endl;
+	std::cout << "Last Name:" << this->contact[foundIndex].getLastname() << std::endl;
+	std::cout << "Nickname:" << this->contact[foundIndex].getNickname() << std::endl;
+	std::cout << "Phone Number:" << this->contact[foundIndex].getPhonenbr() << std::endl;
+	std::cout << "Darkest Secret:" << this->contact[foundIndex].getDarkestsecret() << std::endl;
+}
+
 void	PhoneBook::searchContact()
 {
 	int			num;
+	int			foundIndex;
 	int			idx;
 	std::string	input;
 
@@ -75,13 +96,25 @@ void	PhoneBook::searchContact()
 	while (num < 8)
 	{
 		std::cout	<< std::setw(10) << std::right << num << "|"
-					<< std::setw(10) << std::right << truncateString(contact[num].getFirstname(), 10) << "|"
-					<< std::setw(10) << std::right << truncateString(contact[num].getLastname(), 10) << "|"
-					<< std::setw(10) << std::right << truncateString(contact[num].getNickname(), 10) << std::endl;
+					<< std::setw(10) << std::right << truncateString(this->contact[num].getFirstname(), 10) << "|"
+					<< std::setw(10) << std::right << truncateString(this->contact[num].getLastname(), 10) << "|"
+					<< std::setw(10) << std::right << truncateString(this->contact[num].getNickname(), 10) << std::endl;
 		num++;
 	}
 	std::cout << "Enter the index of the contact to search: ";
 	std::getline(std::cin, input);
-	if (isnumber(input))
+	if (!isnumber(input) || input.empty())
+	{
+		std::cout << "The index should be valid and a number" << std::endl;
+		return ;
+	}
 	idx = std::stoi(input);
+	foundIndex = searchByIndex(idx);
+	if (foundIndex != -1)
+		displayContactInfo(foundIndex);
+	else
+	{
+		std::cout << "Contact index not found (index should be between 0 and 7)." << std::endl;
+		return ;	
+	}
 }
