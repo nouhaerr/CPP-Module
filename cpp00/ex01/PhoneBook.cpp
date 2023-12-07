@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/07 01:48:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 01:57:34 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	PhoneBook::addContact()
 	int			index;
 
 	index = Contact::getIndex();
-	if (index >= 8)
+	if (index >= 2)
 	{
 		std::cout << "more than 8contacts";
 		Contact::setIndex(0);
@@ -47,7 +47,7 @@ void	PhoneBook::addContact()
 	this->contact[index].setNickname(nickName);
 	this->contact[index].setPhonenbr(phonneNbr);
 	this->contact[index].setDarkestsecret(darkestSecret);
-	
+	Contact::incrementIndex();
 	std::cout << "Contact added successfully." << std::endl;
 }
 

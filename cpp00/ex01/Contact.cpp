@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/07 01:33:35 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 01:55:01 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,11 @@ void    Contact::setDarkestsecret(std::string darkestSecret)
 void	Contact::setIndex(int num)
 {
 	index = num;
+}
+
+void	Contact::incrementIndex()
+{
+	index += 1;
 }
 
 int	isnumber(std::string strnbr)

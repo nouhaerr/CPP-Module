@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:46:32 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/06 23:27:37 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 01:54:29 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Contact {
 		void		setPhonenbr(std::string phoneNbr);
 		void		setDarkestsecret(std::string darkestSecret);
 		static void	setIndex(int num);
+		static void	incrementIndex();
 };
 
 #endif
