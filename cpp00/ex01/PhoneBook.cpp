@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/01 23:42:47 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 01:48:13 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 PhoneBook::PhoneBook(void)
 {
-	this->index = 0;
 	return ;
 }
 
@@ -34,15 +33,12 @@ void	PhoneBook::addContact()
 	std::string	darkestSecret;
 	int			index;
 
-	index = contact->get_index();
-	while (index >= 8)
+	index = Contact::getIndex();
+	if (index >= 8)
 	{
 		std::cout << "more than 8contacts";
-		while (index <= 7)
-		{
-			this->contact[(index % 7)-1] = this->contact[index];
-			index -= 1;
-		}
+		Contact::setIndex(0);
+		index = Contact::getIndex();
 	}
 	std::cout<< "Enter the contact informations:" << std::endl;
 	
@@ -51,11 +47,41 @@ void	PhoneBook::addContact()
 	this->contact[index].setNickname(nickName);
 	this->contact[index].setPhonenbr(phonneNbr);
 	this->contact[index].setDarkestsecret(darkestSecret);
-	this->index += 1;
+	
 	std::cout << "Contact added successfully." << std::endl;
+}
+
+// Function to truncate a string and replace the last character with a dot if it exceeds a specified length
+std::string PhoneBook::truncateString(const std::string str, std::string::size_type maxLength)
+{
+    if (str.length() > maxLength)
+	{
+        return str.substr(0, maxLength - 1) + ".";
+    }
+    return str;
 }
 
 void	PhoneBook::searchContact()
 {
-	std::cout << "Enter the index of the contact to search:" << std::endl;
+	int			num;
+	int			idx;
+	std::string	input;
+
+	num = 0;
+	std::cout	<< std::setw(10) << std::right << "Index" << "|"
+				<< std::setw(10) << std::right << "First name" << "|"
+				<< std::setw(10) << std::right << "Last name" << "|"
+				<< std::setw(10) << std::right << "Nickname" << std::endl;
+	while (num < 8)
+	{
+		std::cout	<< std::setw(10) << std::right << num << "|"
+					<< std::setw(10) << std::right << truncateString(contact[num].getFirstname(), 10) << "|"
+					<< std::setw(10) << std::right << truncateString(contact[num].getLastname(), 10) << "|"
+					<< std::setw(10) << std::right << truncateString(contact[num].getNickname(), 10) << std::endl;
+		num++;
+	}
+	std::cout << "Enter the index of the contact to search: ";
+	std::getline(std::cin, input);
+	if (isnumber(input))
+	idx = std::stoi(input);
 }

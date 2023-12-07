@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:49:44 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/01 21:43:53 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/07 01:31:21 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
 # include "Contact.hpp"
 
 class PhoneBook {
 
 	private:
 		Contact			contact[8];
-		static int		index;
 
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
+		std::string truncateString(const std::string str, std::string::size_type maxLength);
 		void addContact();
 		void searchContact();
 };
