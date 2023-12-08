@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/07 02:58:01 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/08 07:31:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,35 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-    std::cout << "\n Destructor executed" << std::endl;
 	return ;
 }
 
-std::string Contact::getFirstname()
+std::string Contact::getFirstname(void)
 {
     return this->firstName;
 }
 
-std::string Contact::getLastname()
+std::string Contact::getLastname(void)
 {
     return this->lastName;
 }
 
-std::string Contact::getNickname()
+std::string Contact::getNickname(void)
 {
     return this->nickName;
 }
 
-std::string Contact::getPhonenbr()
+std::string Contact::getPhonenbr(void)
 {
 	return this->phoneNbr;
 }
 
-std::string Contact::getDarkestsecret()
+std::string Contact::getDarkestsecret(void)
 {
 	return this->darkestSecret;
 }
 
-int	Contact::getIndex()
+int	Contact::getIndex(void)
 {
 	return (index);
 }
@@ -125,7 +124,7 @@ void	Contact::incrementIndex()
 	index += 1;
 }
 
-bool Contact::isValid() const
+bool Contact::isValid(void) const
 {
 	return !firstName.empty() && !lastName.empty() && !nickName.empty() && !phoneNbr.empty() && !darkestSecret.empty();
 }
@@ -135,6 +134,8 @@ int	isnumber(std::string strnbr)
 	int	i = 0;
 	int	j = 0;
 
+	if (strnbr[i] == '+')
+		i++;
 	while (strnbr[i])
 	{
 		if (strnbr[i] >= 48 && strnbr[i] <= 57)
