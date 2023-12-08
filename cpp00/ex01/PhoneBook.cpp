@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/08 07:37:25 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/08 08:05:03 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,6 @@ void	PhoneBook::searchContact(void)
 	else
 	{
 		std::cout << "Contact informations not found." << std::endl;
-		return ;	
+		return ;
 	}
 }
