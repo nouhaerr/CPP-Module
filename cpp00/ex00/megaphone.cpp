@@ -15,22 +15,24 @@
 
 int main(int ac, char **av)
 {
-    int i = 0;
-    int j;
-    char ch;
+    int i = 1;
+    size_t j;
+    std::string str;
 
     if (ac == 1)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     else
         {
-            while (av[++i])
+            while (i < ac)
             {
+                str = av[i];
                 j = 0;
-                while (av[i][j])
+                while (j < str.lenght())
                 {
-                    ch = std::toupper(av[i][j++]);
-                    std::cout << ch;
+                    str[j] = std::toupper(str[j]);
+                    j++;
                 }
+                std::cout << str;
             }
             std::cout << std::endl;
         }
