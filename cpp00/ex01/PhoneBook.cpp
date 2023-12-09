@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/08 08:05:03 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/09 02:16:23 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	PhoneBook::searchContact(void)
 	}
 	std::cout << "Enter the index of the contact to search: ";
 	std::getline(std::cin, input);
-	while (input.empty() || !isnumber(input) || std::stoi(input) < 0 || std::stoi(input) > 7)
+	while (isempty(input) || !isnumber(input) || std::stoi(input) < 0 || std::stoi(input) > 7) //eof
 	{
 		std::cout << "The Contact index should be a valid number / ";
 		std::cout << "and should be between 0 and 7." << std::endl << "Enter the index of the contact to search: ";

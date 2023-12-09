@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/08 07:31:07 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/09 02:15:55 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,15 @@ int	isnumber(std::string strnbr)
 		i++;
 	}
 	if (j)
+		return (1);
+	return (0);
+}
+
+int	isempty(std::string str)
+{
+	if (std::cin.eof())
+		return (1);
+	if (str.empty())
 		return (1);
 	return (0);
 }
