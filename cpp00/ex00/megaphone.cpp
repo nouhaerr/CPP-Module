@@ -15,7 +15,7 @@
 
 int main(int ac, char **av)
 {
-    int i = 1;
+    int i = 0;
     size_t j;
     std::string str;
 
@@ -23,7 +23,7 @@ int main(int ac, char **av)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     else
         {
-            while (i < ac)
+            while (++i < ac)
             {
                 str = av[i];
                 j = 0;
