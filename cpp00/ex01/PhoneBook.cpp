@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/10 04:58:06 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/10 06:25:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::addContact(void)
 {
-	std::string firstName;
-	std::string lastName;
-	std::string	nickName;
-	std::string	phonneNbr;
-	std::string	darkestSecret;
+	std::string firstName = "";
+	std::string lastName = "";
+	std::string	nickName = "";
+	std::string	phonneNbr = "";
+	std::string	darkestSecret = "";
 	int			index;
 
 	index = Contact::getIndex();
@@ -106,7 +106,7 @@ void	PhoneBook::searchContact(void)
 		std::getline(std::cin, input);
 	}
 	foundIndex = std::atoi(input.c_str());
-	if (this->contact[foundIndex].isValid())
+	if (this->contact[foundIndex].isValid() == true)
 		displayContactInfo(foundIndex);
 	else
 	{

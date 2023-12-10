@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:49:44 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/10 03:52:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/10 06:37:42 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 class PhoneBook {
 
 	private:
-		Contact	contact[8];
-		void	displayContactInfo(int foundIndex);
+		Contact		contact[8];
+		void		displayContactInfo(int foundIndex);
 		std::string truncateString(const std::string str, std::string::size_type maxLength);
 
 	public:

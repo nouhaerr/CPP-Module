@@ -6,13 +6,13 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 14:15:21 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/08 04:03:55 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/12/10 05:04:54 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS= -Wall -Werror -Wextra
 
 CSRCS = megaphone.cpp
 

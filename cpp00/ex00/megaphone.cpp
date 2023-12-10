@@ -6,11 +6,12 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:42:29 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/10 02:55:57 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/10 05:06:56 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <ctype.h>
+#include <cctype>
+#include <string>
 #include <iostream>
 
 int main(int ac, char **av)
