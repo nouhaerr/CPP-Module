@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/10 06:25:07 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/10 08:16:03 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PhoneBook::PhoneBook(void)
 	return ;
 }
 
-PhoneBook::~PhoneBook(void)
+PhoneBook::~PhoneBook()
 {
 	return ;
 }
@@ -49,7 +49,7 @@ void	PhoneBook::addContact(void)
 	std::cout << "Contact added successfully." << std::endl;
 }
 
-std::string PhoneBook::truncateString(const std::string str, std::string::size_type maxLength)
+std::string PhoneBook::truncateString(const std::string str, size_t maxLength)
 {
     if (str.length() > maxLength)
 	{
@@ -60,10 +60,10 @@ std::string PhoneBook::truncateString(const std::string str, std::string::size_t
 
 void	PhoneBook::displayContactInfo(int foundIndex)
 {
-	std::cout << "First Name: " << this->contact[foundIndex].getFirstname() << std::endl;
-	std::cout << "Last Name: " << this->contact[foundIndex].getLastname() << std::endl;
-	std::cout << "Nickname: " << this->contact[foundIndex].getNickname() << std::endl;
-	std::cout << "Phone Number: " << this->contact[foundIndex].getPhonenbr() << std::endl;
+	std::cout << "First Name: " << this->contact[foundIndex].getFirstname() << "\n";
+	std::cout << "Last Name: " << this->contact[foundIndex].getLastname() << "\n";
+	std::cout << "Nickname: " << this->contact[foundIndex].getNickname() << "\n";
+	std::cout << "Phone Number: " << this->contact[foundIndex].getPhonenbr() << "\n";
 	std::cout << "Darkest Secret: " << this->contact[foundIndex].getDarkestsecret() << std::endl;
 }
 
@@ -99,7 +99,7 @@ void	PhoneBook::searchContact(void)
 				<< std::string(10, '_') << "|" << std::endl;
 	std::cout << "Enter the index of the contact to search: ";
 	std::getline(std::cin, input);
-	while (isEmpty(input) || !isNumber(input) || std::atoi(input.c_str()) < 0 || std::atoi(input.c_str()) > 7) //if idx == 01
+	while (isEmpty(input) || !isNumber(input) || std::atoi(input.c_str()) < 0 || std::atoi(input.c_str()) > 7)
 	{
 		std::cout << "The Contact index should be a valid number / ";
 		std::cout << "and should be between 0 and 7." << std::endl << "Enter the index of the contact to search: ";

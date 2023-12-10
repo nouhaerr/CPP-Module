@@ -6,13 +6,13 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 14:46:51 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/08 06:09:20 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/12/10 08:24:06 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS= -Wall -Werror -Wextra
 
 CSRCS = Contact.cpp \
 		PhoneBook.cpp \

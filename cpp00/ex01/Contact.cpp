@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/10 04:23:17 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/10 09:37:16 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,32 @@ Contact::Contact(void)
 	return ;
 }
 
-Contact::~Contact(void)
+Contact::~Contact()
 {
 	return ;
 }
 
-std::string Contact::getFirstname(void)
+std::string Contact::getFirstname(void) const
 {
     return this->firstName;
 }
 
-std::string Contact::getLastname(void)
+std::string Contact::getLastname(void) const
 {
     return this->lastName;
 }
 
-std::string Contact::getNickname(void)
+std::string Contact::getNickname(void) const
 {
     return this->nickName;
 }
 
-std::string Contact::getPhonenbr(void)
+std::string Contact::getPhonenbr(void) const
 {
 	return this->phoneNbr;
 }
 
-std::string Contact::getDarkestsecret(void)
+std::string Contact::getDarkestsecret(void) const
 {
 	return this->darkestSecret;
 }
