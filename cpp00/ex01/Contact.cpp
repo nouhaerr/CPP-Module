@@ -152,7 +152,7 @@ int	isnumber(std::string strnbr)
 int	isempty(std::string str)
 {
 	if (std::cin.eof())
-		return (1);
+        exit (0);
 	if (str.empty())
 		return (1);
 	return (0);
