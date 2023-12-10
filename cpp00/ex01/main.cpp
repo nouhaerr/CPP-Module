@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:56:06 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/10/14 18:08:42 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/10 03:38:39 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void)
 		else if (cmd == "SEARCH")
 			phoneBook1.searchContact();
 		else if (cmd == "EXIT")
-			exit(0);
+			std::exit(0);
 		else
 			std::cout << "Please enter one of these 3 commands (ADD, SEARCH, EXIT):" << std::endl;
 	}
