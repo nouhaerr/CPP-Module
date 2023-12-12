@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:00:14 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/12 15:26:01 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:46:15 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Zombie {
 		Zombie(std::string zombieName);
 		~Zombie();
 		void	announce(void) const;
+		void setName(const std::string name);
 };
 
 Zombie*	zombieHorde(int N, std::string name);
