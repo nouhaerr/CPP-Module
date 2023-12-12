@@ -5,22 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/11 14:46:51 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/12 12:30:24 by nerrakeb         ###   ########.fr        #
+#    Created: 2023/12/12 11:06:12 by nerrakeb          #+#    #+#              #
+#    Updated: 2023/12/12 11:42:03 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Wextra -Werror
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
-CSRCS = Contact.cpp \
-		PhoneBook.cpp \
+CSRCS = Zombie.cpp \
+		randomChump.cpp \
+		newZombie.cpp \
 		main.cpp
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = phoneBook
+NAME = zombie
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)

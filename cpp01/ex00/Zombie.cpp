@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 15:30:08 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/12 11:43:08 by nerrakeb         ###   ########.fr       */
+/*   Created: 2023/12/10 15:32:07 by nerrakeb          #+#    #+#             */
+/*   Updated: 2023/12/12 11:37:01 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+Zombie::Zombie(void)
 {
-	Zombie	*zombie = newZombie("Foo");
+	return ;
+}
 
-	zombie->announce();
-	delete(zombie);
-	randomChump("Chump");
-	return (0);
+Zombie::Zombie(std::string zombieName) : name(zombieName)
+{
+	return ;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << this->name << " is destroyed." << std::endl;
+	return ;
+}
+
+void	Zombie::announce(void) const
+{
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
