@@ -6,22 +6,16 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:16:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/12 12:22:07 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:01:13 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
-PhoneBook::PhoneBook(void)
-{
-	return ;
-}
+PhoneBook::PhoneBook(void){}
 
-PhoneBook::~PhoneBook()
-{
-	return ;
-}
+PhoneBook::~PhoneBook(){}
 
 void	PhoneBook::addContact(void)
 {

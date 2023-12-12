@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:07:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/12 16:47:29 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:30:18 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Zombie*	zombieHorde(int N, std::string name)
 {
-	(void)name;
 	Zombie *z = new Zombie[N];
 
 	for (int i = 0; i < N; i++)

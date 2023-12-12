@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/10 09:37:16 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:23:34 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 int Contact::index = 0;
 
-Contact::Contact(void)
-{
-	return ;
-}
+Contact::Contact(void){}
 
-Contact::~Contact()
-{
-	return ;
-}
+Contact::~Contact(){}
 
 std::string Contact::getFirstname(void) const
 {
@@ -58,7 +52,7 @@ void    Contact::setFirstname(std::string firstName)
 {
 	std::cout << "First name: ";
 	std::getline(std::cin, firstName);
-	while (isEmpty(firstName) || isNumber(firstName))
+	while (isEmpty(firstName) || !isAlpha(firstName))
 	{
 		std::cout << "Please enter a valid first name: ";
 		std::getline(std::cin, firstName);
@@ -70,7 +64,7 @@ void    Contact::setLastname(std::string lastName)
 {
 	std::cout << "Last name: ";
 	std::getline(std::cin, lastName);
-	while (isEmpty(lastName) || isNumber(lastName))
+	while (isEmpty(lastName) || !isAlpha(lastName))
 	{
 		std::cout << "Please enter a valid last name: ";
 		std::getline(std::cin, lastName);
@@ -82,7 +76,7 @@ void    Contact::setNickname(std::string nickName)
 {
 	std::cout << "Nickname: ";
 	std::getline(std::cin, nickName);
-	while (isEmpty(nickName) || isNumber(nickName))
+	while (isEmpty(nickName) || !isAlpha(nickName))
 	{
 		std::cout << "Please enter a valid nickname: ";
 		std::getline(std::cin, nickName);
@@ -106,7 +100,7 @@ void    Contact::setDarkestsecret(std::string darkestSecret)
 {
 	std::cout << "Darkest secret: ";
 	std::getline(std::cin, darkestSecret);
-	while (isEmpty(darkestSecret) || isNumber(darkestSecret))
+	while (isEmpty(darkestSecret) || !isAlpha(darkestSecret))
 	{
 		std::cout << "Please enter a valid darkest secret: ";
 		std::getline(std::cin, darkestSecret);
@@ -129,14 +123,32 @@ bool Contact::isValid(void) const
 	return !firstName.empty() && !lastName.empty() && !nickName.empty() && !phoneNbr.empty() && !darkestSecret.empty();
 }
 
+int	isAlpha(std::string str)
+{
+	size_t	i = 0;
+
+	while (str[i] == ' ')
+		i++;
+	if (i == str.length())
+		return (0);
+	i = 0;
+	while ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122) || (str[i] == ' '))
+	{
+		i++;
+	}
+	if (i == str.length())
+		return (1);
+	return (0);
+}
+
 int	isNumber(std::string strnbr)
 {
-	int	i = 0;
-	int	j = 0;
+	size_t	i = 0;
+	int		j = 0;
 
 	if (strnbr[i] == '+')
 		i++;
-	while (strnbr[i])
+	while (i < strnbr.length())
 	{
 		if (strnbr[i] >= 48 && strnbr[i] <= 57)
 			j++;
