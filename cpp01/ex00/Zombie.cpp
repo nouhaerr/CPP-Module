@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:32:07 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/12 11:37:01 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:29:39 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ Zombie::~Zombie()
 void	Zombie::announce(void) const
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
 }
