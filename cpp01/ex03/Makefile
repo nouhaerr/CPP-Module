@@ -5,16 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/12 16:03:40 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/14 20:10:32 by nerrakeb         ###   ########.fr        #
+#    Created: 2023/12/14 20:08:32 by nerrakeb          #+#    #+#              #
+#    Updated: 2023/12/14 20:11:04 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
-CSRCS = main.cpp
+CSRCS = main.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
