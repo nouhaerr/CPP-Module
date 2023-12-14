@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:10:12 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/14 20:17:10 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:37:39 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Weapon {
 	public :
 		Weapon(void);
 		~Weapon();
-		const std::string& getType(void) const;
+		const	std::string& getType(void) const;
+		void	setType(const std::string& type);
 };
 
 #endif
