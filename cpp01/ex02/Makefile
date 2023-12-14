@@ -18,7 +18,7 @@ CSRCS = main.cpp
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = zombieHorde
+NAME = memory
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)

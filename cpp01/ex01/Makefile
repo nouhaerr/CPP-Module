@@ -6,13 +6,13 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 12:56:24 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/14 17:12:19 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/12/14 18:38:07 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g3
+CPPFLAGS= -Wall -Werror -Wextra
 
 CSRCS = Zombie.cpp \
 		zombieHorde.cpp \
