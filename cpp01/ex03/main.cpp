@@ -6,13 +6,11 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:10:15 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/15 18:42:57 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:05:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.cpp"
-#include "HumanB.cpp"
+#include "HumanA.hpp"
 
 int	main(void)
 {

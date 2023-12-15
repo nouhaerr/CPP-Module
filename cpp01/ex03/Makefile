@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/14 20:08:32 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/14 20:11:04 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/12/15 19:05:30 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CSRCS = main.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = memory
+NAME = weapon
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
