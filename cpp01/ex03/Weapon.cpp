@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:10:10 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/14 20:41:06 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:21:57 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 Weapon::Weapon(void){}
 
+Weapon::Weapon(const std::string& weaponType) : _type(weaponType){};
+
 Weapon::~Weapon(){}
 
-// const	std::string& getType(void) const
-// {
-//     return this->type;
-// }
+const std::string&	Weapon::getType(void) const
+{
+    return this->_type;
+}
 
-void	setType(const std::string& type)
-{}
+void	Weapon::setType(const std::string& type)
+{
+    this->_type = type;
+}
 
