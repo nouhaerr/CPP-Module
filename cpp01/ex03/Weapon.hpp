@@ -23,10 +23,10 @@ class Weapon {
 
 	public :
 		Weapon(void);
-		Weapon(const std::string& weaponType);
+		Weapon(const std::string weaponType);
 		~Weapon();
 		const std::string&	getType(void) const;
-		void	setType(const std::string& type);
+		void	setType(const std::string type);
 
 };
 

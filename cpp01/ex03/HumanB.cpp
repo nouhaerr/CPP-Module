@@ -14,12 +14,22 @@
 
 HumanB::HumanB(void){}
 
-HumanB::HumanB(const std::string& name) : _name(name){}
+HumanB::HumanB(const std::string &name) : _name(name){}
 
-HumanB::~HumanB(){}
+HumanB::~HumanB()
+{
+	std::cout << this->_name << " is destroyed." << std::endl;
+}
 
 void	HumanB::attack(void)const
 {
-	
+	if (this->weapon)
+		std::cout << this->_name << " attacks with their " << this->weapon->getType() << std::endl;
+	else
+		std::cout << this->_name << " doesn't have a weapon to attack." << std::endl;
 }
 
+void	HumanB::setWeapon(Weapon &weapon)
+{
+    this->weapon = &weapon;
+}
