@@ -22,4 +22,5 @@ int	main(int ac, char *av[])
 		replace.replaceAndWriteToFile(str1, str2);
 		std::cout << "Replacement completed. Output written to " << filename << ".replace" << std::endl;
 	}
+	return (0);
 }
