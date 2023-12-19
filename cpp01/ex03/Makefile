@@ -12,7 +12,7 @@
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS= -Wall -Werror -Wextra
 
 CSRCS = main.cpp \
 		Weapon.cpp \
