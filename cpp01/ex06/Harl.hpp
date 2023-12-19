@@ -4,15 +4,6 @@
 #include <iostream>
 #include <string>
 
-enum logLevel
-{
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
-	TOTAL_LEVELS
-};
-
 class Harl {
 
 	private:
