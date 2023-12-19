@@ -16,8 +16,8 @@ Zombie*	zombieHorde(int N, std::string name)
 {
 	if (N <= 0)
 	{
-		std::cerr << "error: nbr should be positive!" << std::endl;
-		exit(0);
+		std::cerr << "Error: nbr should be positive!" << std::endl;
+		return NULL;
 	}
 	Zombie *z = new Zombie[N];
 
