@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	}
 
 	std::string	level(argv[1]);
-	Harl	harl;
+	Harl		harl;
 
 	harl.complain(level);
 
