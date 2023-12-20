@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Harl.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 19:18:45 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/19 19:18:46 by nerrakeb         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Harl.hpp"
 
 Harl::Harl(void){}
@@ -67,34 +55,34 @@ void	Harl::complain(std::string level)
 	}
 
 	switch (j)
-        {
-			case 0:
-				{
-					for (int i=0; i < 4; i++)
-						(this->*fct[i])();
-					break ;
-				}
-            case 1:
-				{
-                	for (int i=1; i < 4; i++)
-						(this->*fct[i])();
-					break ;
-				}
-            case 2:
-				{
-					for (int i=2; i < 4; i++)
-						(this->*fct[i])();
-                	break ;
-				}
-            case 3:
-				{
-					(this->*fct[3])();
-                	break ;
-				}
-            default:
-				{
-					std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-					break ;
-				}
-        }
+	{
+		case 0:
+		{
+			for (int i=0; i < 4; i++)
+				(this->*fct[i])();
+			break ;
+		}
+		case 1:
+		{
+			for (int i=1; i < 4; i++)
+				(this->*fct[i])();
+			break ;
+		}
+		case 2:
+		{
+			for (int i=2; i < 4; i++)
+				(this->*fct[i])();
+			break ;
+		}
+		case 3:
+		{
+			(this->*fct[3])();
+			break ;
+		}
+		default:
+		{
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break ;
+		}
+    }
 }
