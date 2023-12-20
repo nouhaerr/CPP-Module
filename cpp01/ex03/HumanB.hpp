@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:09:55 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/15 18:40:08 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/21 00:30:08 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanB {
 
 	private :
 		std::string	_name;
-		Weapon		*weapon;
+		Weapon*		weapon;
 
 	public :
 		HumanB(void);
