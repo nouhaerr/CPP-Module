@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:11:37 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/21 01:00:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/21 01:01:21 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	int		nbr = -12;
+	int		nbr = 5;
 	Zombie	*zombie = zombieHorde(nbr, "zombieHorde");
 
 	if (!zombie)
