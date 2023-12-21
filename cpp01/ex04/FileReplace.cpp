@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:19:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/19 19:19:10 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/21 01:51:15 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	FileReplace::outputFile(const std::string outputFile)
 
 void	FileReplace::replaceString(std::string& line, const std::string& oldStr, const std::string& newStr)
 {
-	size_t		pos = 0;
+	size_t	pos = 0;
 
 	pos = line.find(oldStr, pos);
 	while (pos != std::string::npos)
