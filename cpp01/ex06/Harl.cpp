@@ -33,7 +33,7 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	size_t		j;
+	size_t		j = 0;
 	harlFunct	fct[4];
 	std::string	comment[4] = {
 		"DEBUG",
@@ -47,36 +47,18 @@ void	Harl::complain(std::string level)
 	fct[2] = &Harl::warning;
 	fct[3] = &Harl::error;
 
-	while (j < 4)
-	{
-		if (level == comment[j])
-			break ;
+	while (j < 4 && level != comment[j])
 		j++;
-	}
 
 	switch (j)
 	{
 		case 0:
-		{
-			for (int i=0; i < 4; i++)
-				(this->*fct[i])();
-			break ;
-		}
 		case 1:
-		{
-			for (int i=1; i < 4; i++)
-				(this->*fct[i])();
-			break ;
-		}
 		case 2:
-		{
-			for (int i=2; i < 4; i++)
-				(this->*fct[i])();
-			break ;
-		}
 		case 3:
 		{
-			(this->*fct[3])();
+			for (size_t i = j; i < 4; i++)
+				(this->*fct[i])();
 			break ;
 		}
 		default:
