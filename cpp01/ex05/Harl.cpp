@@ -59,7 +59,11 @@ void	Harl::complain(std::string level)
 	while (i < 4)
 	{
 		if (comment[i] == level)
+		{
 			(this->*fct[i])();
+			return ;
+		}
 		i++;
 	}
+	std::cerr << "Level Not Found!" << std::endl;
 }
