@@ -12,7 +12,7 @@
 
 #include "Fixed.hpp"
 
-const int Fixed::fractBits = 0;
+const int Fixed::_fractBits = 8;
 
 Fixed::Fixed(void){
 
@@ -20,10 +20,10 @@ Fixed::Fixed(void){
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& copy)
+Fixed::Fixed(const Fixed& src)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
+    *this = src;
 }
 
 Fixed::~Fixed() {

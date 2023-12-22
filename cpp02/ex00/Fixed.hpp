@@ -14,17 +14,16 @@
 # define FIXED_HPP
 
 # include <iostream>
-# include <string>
 
 class Fixed {
 
 	private:
 		int					_rawBits;
-		static const int	fractBits;
+		static const int	_fractBits;
 
 	public:
 		Fixed(void);
-		Fixed(const Fixed& copy);
+		Fixed(const Fixed& src);
 		~Fixed();
 		Fixed& operator=(const Fixed& obj);
 		int		getRawBits(void) const;
