@@ -53,14 +53,17 @@ void	Harl::complain(std::string level)
 	switch (j)
 	{
 		case 0:
+				(this->*fct[0])();
+				//fallthrough
 		case 1:
+				(this->*fct[1])();
+				//fallthrough
 		case 2:
+				(this->*fct[2])();
+				//fallthrough
 		case 3:
-		{
-			for (size_t i = j; i < 4; i++)
-				(this->*fct[i])();
+			(this->*fct[3])();
 			break ;
-		}
 		default:
 		{
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
