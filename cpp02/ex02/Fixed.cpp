@@ -139,7 +139,7 @@ Fixed	Fixed::operator++(int)
 	Fixed	old = *this;
 
 	this->_rawBits++;
-	return old;
+	return (old);
 }
 
 Fixed	Fixed::operator--(int)
@@ -147,25 +147,33 @@ Fixed	Fixed::operator--(int)
 	Fixed	old = *this;
 
 	this->_rawBits--;
-	return old;
+	return (old);
 }
 
 Fixed&	Fixed::min(Fixed &ob1, Fixed &ob2)
 {
-	return (ob1 < ob2) ? ob1 : ob2;
+	if (ob1 < ob2)
+		return (ob1);
+	return (ob2);
 }
 
 const Fixed&	Fixed::min(Fixed const &ob1, Fixed const &ob2)
 {
-	return (ob1 < ob2) ? ob1 : ob2;
+	if (ob1 < ob2)
+		return (ob1);
+	return (ob2);
 }
 
 Fixed&	Fixed::max(Fixed &ob1, Fixed &ob2)
 {
-	return (ob1 > ob2) ? ob1 : ob2;
+	if (ob1 > ob2)
+		return (ob1);
+	return (ob2);
 }
 
 const Fixed&	Fixed::max(Fixed const &ob1,Fixed const &ob2)
 {
-	return (ob1 > ob2) ? ob1 : ob2;
+	if (ob1 > ob2)
+		return (ob1);
+	return (ob2);
 }
