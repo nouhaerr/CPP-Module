@@ -25,6 +25,10 @@ int	main( void )
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 
+	Fixed	c(b / a);
+
+	std::cout << c << std::endl;
+
 	if (a < b)
 		std::cout << "a is inferior to b" << std::endl;
 	else
