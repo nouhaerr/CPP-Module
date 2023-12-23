@@ -32,7 +32,7 @@ Fixed::Fixed(float const floatRawBits)
 	this->_rawBits = roundf(floatRawBits * (1 << Fixed::_fractBits));
 }
 
-Fixed::Fixed(const Fixed& src)
+Fixed::Fixed(Fixed const &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
