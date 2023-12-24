@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:19:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/21 01:51:15 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:59:47 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,16 @@ void	FileReplace::replaceString(std::string& line, const std::string& oldStr, co
 void	FileReplace::replaceAndWriteToFile(std::string oldString, std::string newString)
 {
 	std::string	line;
+	bool  isLastLine = false;
 
 	while (std::getline(this->infile, line))
 	{
 		replaceString(line, oldString, newString);
-		this->outfile << line << "\n";
+		isLastLine = this->infile.eof();
+		this->outfile << line;
+		 if (!isLastLine) {
+            outfile << "\n";
+        }
 	}
 	this->infile.close();
 	this->outfile.close();
