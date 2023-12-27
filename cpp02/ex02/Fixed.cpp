@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:29:34 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/23 23:37:54 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/28 00:28:31 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ Fixed	Fixed::operator*(Fixed const &obj)const
 
 Fixed	Fixed::operator/(Fixed const &obj)const
 {
+	
 	return Fixed(this->toFloat() / obj.toFloat());
 }
 
