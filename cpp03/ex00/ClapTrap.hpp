@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:37:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 01:22:44 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 04:11:51 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class ClapTrap {
 		int			getHitPoints(void) const;
 		int			getEnergyPoints(void) const;
 		int			getAttackDamage(void) const;
-		void		setName(std::string &name);
-		void		setHitPoints(int hitPoints);
-		void		setEnergyPoints(int energyPoints);
-		void		setAttackDamage(int attackDamage);
+		void		setName(std::string name);
+		void		setHitPoints(unsigned int hitPoints);
+		void		setEnergyPoints(unsigned int energyPoints);
+		void		setAttackDamage(unsigned int attackDamage);
 		void		afficheStatus(void) const;
 };
 
