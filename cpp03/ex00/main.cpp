@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:37:12 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 05:41:14 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 06:24:55 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 	c.beRepaired(2);
 
 	std::cout << std::endl;
-	b.takeDamage(3);
+	b.takeDamage(10);
 	b.attack("Mohamed");
 	b.beRepaired(1);
 	b.afficheStatus();
