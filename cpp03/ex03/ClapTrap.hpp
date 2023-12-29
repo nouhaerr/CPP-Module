@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 23:37:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:07:30 by nerrakeb         ###   ########.fr       */
+/*   Created: 2023/12/24 01:02:44 by nerrakeb          #+#    #+#             */
+/*   Updated: 2023/12/29 09:06:44 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap {
 
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;

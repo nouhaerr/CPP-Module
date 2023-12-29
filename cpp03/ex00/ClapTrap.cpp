@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:36:56 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 06:22:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 09:07:38 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	ClapTrap::setAttackDamage(unsigned int attackDamage)
 	this->_attackDamage = attackDamage;
 }
 
-void	ClapTrap::afficheStatus(void) const
+void	ClapTrap::showStatus(void) const
 {
 	std::cout << "Status of " << this->_name << ":\n";
 	std::cout << " " << this->_energyPoints << " Energy points, "

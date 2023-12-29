@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:02:44 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 05:02:25 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 09:07:00 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class ClapTrap {
 		void		setHitPoints(unsigned int hitPoints);
 		void		setEnergyPoints(unsigned int energyPoints);
 		void		setAttackDamage(unsigned int attackDamage);
-		void		afficheStatus(void) const;
+		void		showStatus(void) const;
 };
 
 #endif
