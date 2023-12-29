@@ -30,6 +30,7 @@ ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
 	std::cout << "ScavTrap:: Constructor with " << name << " as parameter called" << std::endl;
 }
 
+
 ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap:: Copy constructor called" << std::endl;
@@ -37,14 +38,14 @@ ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap const &other)
-{ 
-	this->_name = other.getName();
-	this->_hitPoints = other.getHitPoints();
-	this->_energyPoints = other.getEnergyPoints();
-	this->_attackDamage = other.getAttackDamage();
+{
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		ClapTrap::operator=(other);
+	}
 	return *this;
 }
-
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap:: Destructor called for " << this->_name << std::endl;

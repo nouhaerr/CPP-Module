@@ -38,10 +38,11 @@ FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
 
 FragTrap& FragTrap::operator=(FragTrap const &other)
 { 
-	this->_name = other.getName();
-	this->_hitPoints = other.getHitPoints();
-	this->_energyPoints = other.getEnergyPoints();
-	this->_attackDamage = other.getAttackDamage();
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		ClapTrap::operator=(other);
+	}
 	return *this;
 }
 

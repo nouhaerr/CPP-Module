@@ -12,7 +12,7 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("Default_clap_name") , _name("DiamondTrap")
+DiamondTrap::DiamondTrap(void) : ClapTrap("Default_clap_name") , ScavTrap(), FragTrap(), _name("Default_name")
 {
 	ClapTrap::_hitPoints = FragTrap::_hitPoints;
 	ClapTrap::_energyPoints = ScavTrap::_energyPoints;
@@ -36,8 +36,12 @@ DiamondTrap::DiamondTrap(DiamondTrap const &other) : ClapTrap(other), ScavTrap(o
 
 DiamondTrap&	DiamondTrap::operator=(DiamondTrap const &other)
 {
-	this->_name = other.getName();
-	ClapTrap::operator=(other);
+	if (this != &other)
+	{
+		this->_name = other._name;
+		FragTrap::operator=(other);
+        ScavTrap::operator=(other);
+	}
 	return *this;
 }
 

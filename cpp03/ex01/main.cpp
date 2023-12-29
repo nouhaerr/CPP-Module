@@ -18,7 +18,6 @@ int	main(void)
 	ScavTrap	*s = new ScavTrap("Mohamed");
 
 	std::cout << std::endl;
-
 	for (int i = 0; i < 2; i++)
 	{
 		s->attack("Riad");
