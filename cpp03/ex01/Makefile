@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/24 01:01:42 by nerrakeb          #+#    #+#              #
-#    Updated: 2023/12/24 01:02:20 by nerrakeb         ###   ########.fr        #
+#    Updated: 2023/12/29 05:45:45 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CSRCS = main.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = clapTrap
+NAME = scavTrap
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)

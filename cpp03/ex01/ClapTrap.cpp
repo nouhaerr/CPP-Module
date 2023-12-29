@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:02:50 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 04:25:07 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 05:40:39 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
+	if (this->_hitPoints > 0 && this->_energyPoints > 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " can't take damage." << std::endl;
-		return ;
+		this->_attackDamage += amount;
+		std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage." << std::endl;
 	}
-	this->_attackDamage += amount;
-	std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage." << std::endl;
+	else
+		std::cout << "ClapTrap " << this->_name << " can't take damage." << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -120,8 +120,8 @@ void	ClapTrap::setAttackDamage(unsigned int attackDamage)
 
 void	ClapTrap::afficheStatus(void) const
 {
-	std::cout << "Status of: " << this->_name << "\n";
-	std::cout << " " << this->_energyPoints << " Energy points," << "\n"
-	<< " " << this->_hitPoints << "Hit points (health) " << "\n"
-	<< "and " << this->_attackDamage << " points of Damage." << std::endl;
+	std::cout << "Status of " << this->_name << ":\n";
+	std::cout << " " << this->_energyPoints << " Energy points, "
+	<< this->_hitPoints << " Hit points (health) and "
+	<< this->_attackDamage << " points of Damage." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:01:36 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 04:49:18 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 05:29:57 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap:: Destructor called for " << this->_name << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &other)
+ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap:: Copy constructor called" << std::endl;
-	*this = other;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap const &other)

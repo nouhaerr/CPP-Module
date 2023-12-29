@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:01:28 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 05:02:30 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 05:10:08 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
-# include <iostream>
-# include <string>
 
 class ScavTrap : public ClapTrap {
 
