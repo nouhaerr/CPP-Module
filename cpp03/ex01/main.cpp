@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+	std::cout << std::endl;
 	ScavTrap	*s = new ScavTrap("Mohamed");
 
 	std::cout << std::endl;
@@ -26,19 +27,9 @@ int	main(void)
 		std::cout << std::endl;
 	}
 	s->guardGate();
-	// ScavTrap	d;
-	// ScavTrap	a(d);
 
-	// std::cout << std::endl;
-	// a.attack("Fatine");
-	// a.beRepaired(1);
-	// a.takeDamage(100);
-	// a.attack("Fatine");
-	// a.showStatus();
-	// a.guardGate();
 	std::cout << std::endl;
 	delete s;
-	std::cout << std::endl;
 
 	return 0;
 }

@@ -14,24 +14,17 @@
 
 int	main(void)
 {
+	std::cout << std::endl;
 	DiamondTrap	*s = new DiamondTrap("Lola");
 
 	std::cout << std::endl;
-
 	s->showStatus();
 	std::cout << std::endl;
-	for (int i = 0; i < 1; i++)
-	{
-		s->attack("Dina");
-		s->beRepaired(1);
-		s->takeDamage(100);
-		s->showStatus();
-		std::cout << std::endl;
-	}
+	s->attack("Dina");
+	std::cout << std::endl;
 	s->whoAmI();
 	std::cout << std::endl;
 	delete s;
-	std::cout << std::endl;
 
 	return (0);
 }

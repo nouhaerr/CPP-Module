@@ -25,7 +25,7 @@ int main(void)
 	b.takeDamage(10);
 	b.attack("Mohamed");
 	b.beRepaired(1);
-	b.afficheStatus();
+	b.showStatus();
 	std::cout << std::endl;
 
 	return 0;

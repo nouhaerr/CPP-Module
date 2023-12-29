@@ -12,30 +12,26 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("Diamond_clap_name") , _name("DiamondTrap")
+DiamondTrap::DiamondTrap(void) : ClapTrap("Default_clap_name") , _name("DiamondTrap")
 {
-	std::cout << "DiamondTrap:: Default constructor called" << std::endl;
 	ClapTrap::_hitPoints = FragTrap::_hitPoints;
 	ClapTrap::_energyPoints = ScavTrap::_energyPoints;
 	ClapTrap::_attackDamage = FragTrap::_hitPoints;
+	std::cout << "DiamondTrap:: Default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name + "_clap_name"),  ScavTrap(name), FragTrap(name), _name(name)
 {
-	std::cout << "DiamondTrap:: Constructor with " << _name << " as parameter called" << std::endl;
 	ClapTrap::_hitPoints = FragTrap::_hitPoints;
 	ClapTrap::_energyPoints = ScavTrap::_energyPoints;
 	ClapTrap::_attackDamage = FragTrap::_attackDamage;
+	std::cout << "DiamondTrap:: Constructor with " << _name << " as parameter called" << std::endl;
 }
 
-DiamondTrap::~DiamondTrap()
-{
-	std::cout << "DiamondTrap:: Destructor called for " << this->_name << std::endl;
-}
-
-DiamondTrap::DiamondTrap(ScavTrap const &other) : ClapTrap(other)
+DiamondTrap::DiamondTrap(DiamondTrap const &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
 	std::cout << "DiamondTrap:: Copy constructor called" << std::endl;
+	*this = other;
 }
 
 DiamondTrap&	DiamondTrap::operator=(DiamondTrap const &other)
@@ -43,6 +39,11 @@ DiamondTrap&	DiamondTrap::operator=(DiamondTrap const &other)
 	this->_name = other.getName();
 	ClapTrap::operator=(other);
 	return *this;
+}
+
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << "DiamondTrap:: Destructor called for " << this->_name << std::endl;
 }
 
 void	DiamondTrap::whoAmI()

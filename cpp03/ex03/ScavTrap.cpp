@@ -14,30 +14,26 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	std::cout << "ScavTrap:: Default constructor called" << std::endl;
-	setName("Hanane");
+	setName("Default_name");
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackDamage(20);
+	std::cout << "ScavTrap:: Default constructor is created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
 {
 	this->_name = name;
-	std::cout << "ScavTrap:: Constructor with " << name << " as parameter called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-}
-
-ScavTrap::~ScavTrap()
-{
-	std::cout << "ScavTrap:: Destructor called for " << this->_name << std::endl;
+	std::cout << "ScavTrap:: Constructor with " << name << " as parameter called" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap:: Copy constructor called" << std::endl;
+	*this = other;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap const &other)
@@ -47,6 +43,11 @@ ScavTrap& ScavTrap::operator=(ScavTrap const &other)
 	this->_energyPoints = other.getEnergyPoints();
 	this->_attackDamage = other.getAttackDamage();
 	return *this;
+}
+
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap:: Destructor called for " << this->_name << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)

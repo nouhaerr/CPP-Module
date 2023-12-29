@@ -14,22 +14,15 @@
 
 int	main(void)
 {
-	FragTrap	*s = new FragTrap("Lola");
+	FragTrap	fTrap1("Mons_01");
+	FragTrap	fTrap2("Mons_02");
 
 	std::cout << std::endl;
 
-	for (int i = 0; i < 1; i++)
-	{
-		s->attack("Dina");
-		s->beRepaired(1);
-		s->takeDamage(100);
-		s->showStatus();
-		std::cout << std::endl;
-	}
-
-	s->highFivesGuys();
+	fTrap1.highFivesGuys();
 	std::cout << std::endl;
-	delete s;
+	fTrap2.attack(fTrap1.getName());
+	fTrap2.highFivesGuys();
 	std::cout << std::endl;
 
 	return (0);
