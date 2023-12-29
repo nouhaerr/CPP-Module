@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:04:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:07:48 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 09:48:53 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(void)
 		std::cout << std::endl;
 	}
 	s->whoAmI();
+	std::cout << std::endl;
 	delete s;
 	std::cout << std::endl;
 

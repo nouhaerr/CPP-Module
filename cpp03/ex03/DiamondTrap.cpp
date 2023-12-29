@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 07:14:31 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:03:58 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/29 09:48:11 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::showStatus(void) const
 {
-	std::cout << "DiamondTrap Status of " << getName() << ":\n";
-	std::cout << " " << getEnergyPoints() << " Energy points, "
-	<< getHitPoints() << " Hit points (health) and "
-	<< getAttackDamage() << " points of Damage." << std::endl;
+	std::cout << "DiamondTrap Status of " << this->_name << ":\n";
+	std::cout << " " << this->getEnergyPoints() << " Energy points, "
+	<< this->getHitPoints() << " Hit points (health) and "
+	<< this->getAttackDamage() << " points of Damage." << std::endl;
 }
