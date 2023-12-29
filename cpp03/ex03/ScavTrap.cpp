@@ -23,10 +23,10 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 
 ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
 {
-	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_otherName = name;
+	this->_hitPts = 100;
+	this->_energyPts = 50;
+	this->_damage = 20;
 	std::cout << "ScavTrap:: Constructor with " << name << " as parameter called" << std::endl;
 }
 
@@ -41,7 +41,7 @@ ScavTrap& ScavTrap::operator=(ScavTrap const &other)
 {
 	if (this != &other)
 	{
-		this->_name = other.getName();
+		this->_otherName = other.getName();
 		ClapTrap::operator=(other);
 	}
 	return *this;
@@ -49,23 +49,23 @@ ScavTrap& ScavTrap::operator=(ScavTrap const &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap:: Destructor called for " << this->_name << std::endl;
+	std::cout << "ScavTrap:: Destructor called for " << this->_otherName << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (this->_hitPoints > 0 && this->_energyPoints > 0)
+	if (this->_hitPts > 0 && this->_energyPts > 0)
 	{
-		this->_energyPoints--;
-		std::cout << "ScavTrap " << this->_name << " attacks " << target
+		this->_energyPts--;
+		std::cout << "ScavTrap " << this->_otherName << " attacks " << target
 			<< ", causing " << this->getAttackDamage()
 			<< " points of damage!" << std::endl;
 	}
 	else
-		std::cout << "ScavTrap " << this->_name << " can't attack. No hit points or energy left!" << std::endl;
+		std::cout << "ScavTrap " << this->_otherName << " can't attack. No hit points or energy left!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
 {
-	 std::cout << "ScavTrap " << this->_name << " is now in Gatekeeper mode." << std::endl;
+	 std::cout << "ScavTrap " << this->_otherName << " is now in Gatekeeper mode." << std::endl;
 }

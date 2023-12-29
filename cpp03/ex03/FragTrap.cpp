@@ -23,10 +23,10 @@ FragTrap::FragTrap(void) : ClapTrap()
 
 FragTrap::FragTrap(std::string const &name) : ClapTrap(name)
 {
-	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_attackDamage = 30;
+	this->_otherName = name;
+	this->_hitPts = 100;
+	this->_energyPts = 100;
+	this->_damage = 30;
 	std::cout << "FragTrap:: Constructor with " << name << " as parameter called" << std::endl;
 }
 
@@ -40,7 +40,7 @@ FragTrap& FragTrap::operator=(FragTrap const &other)
 { 
 	if (this != &other)
 	{
-		this->_name = other.getName();
+		this->_otherName = other.getName();
 		ClapTrap::operator=(other);
 	}
 	return *this;
@@ -48,10 +48,10 @@ FragTrap& FragTrap::operator=(FragTrap const &other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap:: Destructor called for " << this->_name << std::endl;
+	std::cout << "FragTrap:: Destructor called for " << this->_otherName << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "Hey " << _name << ", give me some high fives!" << std::endl;
+	std::cout << "Hey " << _otherName << ", give me some high fives!" << std::endl;
 }

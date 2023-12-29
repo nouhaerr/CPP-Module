@@ -14,17 +14,17 @@
 
 DiamondTrap::DiamondTrap(void) : ClapTrap("Default_clap_name") , ScavTrap(), FragTrap(), _name("Default_name")
 {
-	ClapTrap::_hitPoints = FragTrap::_hitPoints;
-	ClapTrap::_energyPoints = ScavTrap::_energyPoints;
-	ClapTrap::_attackDamage = FragTrap::_hitPoints;
+	ClapTrap::_hitPoints = FragTrap::_hitPts;
+	ClapTrap::_energyPoints = ScavTrap::_energyPts;
+	ClapTrap::_attackDamage = FragTrap::_damage;
 	std::cout << "DiamondTrap:: Default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name + "_clap_name"),  ScavTrap(name), FragTrap(name), _name(name)
 {
-	ClapTrap::_hitPoints = FragTrap::_hitPoints;
-	ClapTrap::_energyPoints = ScavTrap::_energyPoints;
-	ClapTrap::_attackDamage = FragTrap::_attackDamage;
+	ClapTrap::_hitPoints = FragTrap::_hitPts;
+	ClapTrap::_energyPoints = ScavTrap::_energyPts;
+	ClapTrap::_attackDamage = FragTrap::_damage;
 	std::cout << "DiamondTrap:: Constructor with " << _name << " as parameter called" << std::endl;
 }
 
@@ -64,7 +64,7 @@ void	DiamondTrap::attack(const std::string& target)
 void	DiamondTrap::showStatus(void) const
 {
 	std::cout << "DiamondTrap Status of " << this->_name << ":\n";
-	std::cout << " " << this->getEnergyPoints() << " Energy points, "
-	<< this->getHitPoints() << " Hit points (health) and "
-	<< this->getAttackDamage() << " points of Damage." << std::endl;
+	std::cout << " " << this->_energyPoints << " Energy points, "
+	<< this->_hitPoints << " Hit points (health) and "
+	<< this->_attackDamage << " points of Damage." << std::endl;
 }

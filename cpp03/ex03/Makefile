@@ -12,7 +12,7 @@
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS= -Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98 
 
 CSRCS = main.cpp \
 		ClapTrap.cpp \

@@ -18,10 +18,10 @@
 class ScavTrap : virtual public ClapTrap {
 
 	protected:
-		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
+		std::string		_otherName;
+		unsigned int	_hitPts;
+		unsigned int	_energyPts;
+		unsigned int	_damage;
 
 	public:
 		ScavTrap(void);
