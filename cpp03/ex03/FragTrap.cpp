@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:04:33 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:05:50 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/30 06:12:59 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-	setName("Default_name");
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	this->_otherName = "Default_name";
+	this->_hitPts = 100;
+	this->_energyPts = 100;
+	this->_damage = 30;
+	ClapTrap::_name = this->_otherName;
+	ClapTrap::_hitPoints = this->_hitPts;
+	ClapTrap::_energyPoints = this->_energyPts;
+	ClapTrap::_attackDamage = this->_damage;
 	std::cout << "FragTrap:: Default constructor called" << std::endl;
 }
 
@@ -27,6 +31,9 @@ FragTrap::FragTrap(std::string const &name) : ClapTrap(name)
 	this->_hitPts = 100;
 	this->_energyPts = 100;
 	this->_damage = 30;
+	ClapTrap::_hitPoints = this->_hitPts;
+	ClapTrap::_energyPoints = this->_energyPts;
+	ClapTrap::_attackDamage = this->_damage;
 	std::cout << "FragTrap:: Constructor with " << name << " as parameter called" << std::endl;
 }
 

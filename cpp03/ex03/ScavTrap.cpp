@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:01:36 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:51:09 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/30 06:13:45 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	setName("Default_name");
-	setHitPoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	this->_otherName = "Default_name";
+	this->_hitPts = 100;
+	this->_energyPts = 50;
+	this->_damage = 20;
+	ClapTrap::_name = this->_otherName;
+	ClapTrap::_hitPoints = this->_hitPts;
+	ClapTrap::_energyPoints = this->_energyPts;
+	ClapTrap::_attackDamage = this->_damage;
 	std::cout << "ScavTrap:: Default constructor is created" << std::endl;
 }
 
@@ -27,6 +31,9 @@ ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
 	this->_hitPts = 100;
 	this->_energyPts = 50;
 	this->_damage = 20;
+	ClapTrap::_hitPoints = this->_hitPts;
+	ClapTrap::_energyPoints = this->_energyPts;
+	ClapTrap::_attackDamage = this->_damage;
 	std::cout << "ScavTrap:: Constructor with " << name << " as parameter called" << std::endl;
 }
 

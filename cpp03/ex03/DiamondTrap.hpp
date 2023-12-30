@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 07:14:33 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:00:30 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/30 06:17:43 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		~DiamondTrap();
 
 		void			whoAmI();
-		void			attack(const std::string& target);
+		using			ScavTrap::attack;
 		void			showStatus(void) const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:01:36 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:26:55 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/30 05:41:41 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	setName("Default_name");
-	setHitPoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	this->_name = "Default_name";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 	std::cout << "ScavTrap:: Default constructor is created" << std::endl;
 }
 

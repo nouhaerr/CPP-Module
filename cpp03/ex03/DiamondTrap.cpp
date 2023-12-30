@@ -6,13 +6,13 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 07:14:31 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/29 09:48:11 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/12/30 06:17:48 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("Default_clap_name") , ScavTrap(), FragTrap(), _name("Default_name")
+DiamondTrap::DiamondTrap(void) : ScavTrap(), FragTrap(), _name("Default_name")
 {
 	ClapTrap::_hitPoints = FragTrap::_hitPts;
 	ClapTrap::_energyPoints = ScavTrap::_energyPts;
@@ -54,11 +54,6 @@ void	DiamondTrap::whoAmI()
 {
 	std::cout << "DiamondTrap Name: " << this->_name << std::endl;
 	std::cout << "ClapTrap Name: " << ClapTrap::_name << std::endl;
-}
-
-void	DiamondTrap::attack(const std::string& target)
-{	
-	ScavTrap::attack(target);
 }
 
 void	DiamondTrap::showStatus(void) const
