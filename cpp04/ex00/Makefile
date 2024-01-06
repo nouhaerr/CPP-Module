@@ -10,3 +10,30 @@
 #                                                                              #
 # **************************************************************************** #
 
+CPP = c++
+
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+
+CSRCS = main.cpp \
+		Animal.cpp \
+		Cat.cpp \
+		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp \
+
+OBJ = $(CSRCS:.cpp=.o)
+
+NAME = animal
+
+$(NAME): $(OBJ)
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+all : ${NAME}
+
+clean :
+	rm -f $(OBJ)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all

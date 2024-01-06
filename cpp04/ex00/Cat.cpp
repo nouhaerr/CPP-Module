@@ -10,3 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Cat.hpp"
+
+Cat::Cat(void)
+{
+	this->type = "Cat";
+	std::cout << "Default Constructor for Cat is created" << std::endl;
+}
+
+Cat::Cat(Cat const &copy) : Animal(copy)
+{
+	*this = copy;
+	std::cout << "Copy constructor for Cat is created" << std::endl;
+}
+
+Cat&	Cat::operator=(Cat const &copy)
+{
+	if (this != &copy)
+	{
+		this->type = copy.getType();
+		Animal::operator=(copy);
+	}
+	return *this;
+}
+
+Cat::~Cat()
+{
+	std::cout << "Destructor for Cat is called" << std::endl;
+}
+
+void	Cat::makeSound() const
+{
+	std::cout << "Cat:: meows, meows" << std::endl;
+}

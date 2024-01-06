@@ -10,3 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+
+int	main(void)
+{
+	const Animal* animal = new Animal();
+	const Animal* cat = new Cat();
+	const Animal* dog = new Dog();
+
+	std::cout << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
+	std::cout << dog->getType() << " " << std::endl;
+	cat->makeSound(); //will output the cat sound!
+	dog->makeSound();
+	animal->makeSound();
+	std::cout << std::endl;
+	delete animal;
+	delete cat;
+	delete dog;
+
+	std::cout << std::string(50, '-') << std::endl;
+
+	const WrongAnimal* wrongAnimal = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+	std::cout << std::endl;
+	std::cout << wrongCat->getType() << " " << std::endl;
+	wrongCat->makeSound(); //will output the cat sound!
+	wrongAnimal->makeSound();
+	std::cout << std::endl;
+	delete wrongAnimal;
+	delete wrongCat;
+
+	return 0;
+}
