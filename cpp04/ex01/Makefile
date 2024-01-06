@@ -24,7 +24,7 @@ CSRCS = main.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = animal
+NAME = brain
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
