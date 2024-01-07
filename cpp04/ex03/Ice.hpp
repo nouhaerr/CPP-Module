@@ -10,3 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ICE_HPP
+# define ICE_HPP
+
+class Ice : public AMateria{
+
+	public:
+		Ice(std::string const & type);
+		Ice(Ice const &copy);
+		Ice&	operator=(Ice const &copy);
+        ~Ice();
+        std::string const & getType() const;
+        Ice* clone() const;
+        void use(ICharacter& target);
+};
+
+#endif
