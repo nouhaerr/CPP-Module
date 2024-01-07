@@ -10,3 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Dog.hpp"
+
+Dog::Dog(void)
+{
+	this->type = "Dog";
+	this->brain = new Brain();
+	std::cout << "Default constructor for Dog is created" << std::endl;
+}
+
+Dog::Dog(Dog const &copy) : AAnimal(copy)
+{
+	*this = copy;
+	std::cout << "Copy constructor for Dog is created" << std::endl;
+}
+
+Dog&	Dog::operator=(Dog const &copy)
+{
+	if (this != &copy)
+	{
+		this->type = copy.getType();
+		this->brain = new Brain(*(copy.brain));
+		AAnimal::operator=(copy);
+	}
+	return *this;
+}
+
+Dog::~Dog()
+{
+	delete this->brain;
+	std::cout << "Destructor for Dog is called" << std::endl;
+}
+
+void	Dog::makeSound()const
+{
+	std::cout << "Dog:: Haou, Haou, Haaw" << std::endl;
+}
+
+void	Dog::setBrain(Brain *brain)
+{
+	this->brain = brain;
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return this->brain;
+}

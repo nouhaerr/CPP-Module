@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
+
+# include <iostream>
+# include <string>
+
+class AAnimal {
+
+	protected:
+		std::string	type;
+
+	public:
+		AAnimal(void);
+		AAnimal(AAnimal const &copy);
+		virtual AAnimal&	operator=(AAnimal const &copy);
+		virtual ~AAnimal();
+		virtual void	makeSound()const = 0;
+
+		std::string		getType(void)const;
+		void			setType(std::string type);
+};
+
+#endif
