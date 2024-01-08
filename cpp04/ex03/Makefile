@@ -10,3 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
+CPP = c++
+
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+
+CSRCS =	*.cpp \
+
+OBJ = $(CSRCS:.cpp=.o)
+
+NAME = materia
+
+$(NAME): $(OBJ)
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+all : ${NAME}
+
+clean :
+	rm -f $(OBJ)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
