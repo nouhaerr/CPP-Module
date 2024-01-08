@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:43:10 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:43:11 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:33:46 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Cat : public Animal {
 		Cat(Cat const &copy);
 		Cat&	operator=(Cat const &copy);
 		~Cat();
+
 		void	makeSound()const;
 		void	setBrain(Brain *brain);
 		Brain	*getBrain(void) const;

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:44:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:44:55 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:31:37 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class WrongCat : public WrongAnimal {
 		~WrongCat();
 
 		void	makeSound() const;
-		std::string	getType(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:41:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:41:10 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/08 22:36:48 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int	main(void)
 {
 	const Animal* animal = new Animal();
-	const Animal* cat = new Cat();
+	const Animal* cat = new Cat(); //upcasting
 	const Animal* dog = new Dog();
 
 	std::cout << std::endl;

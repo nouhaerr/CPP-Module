@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:48:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:48:02 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:27:39 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include "Character.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
-// #
-// #
-
 
 int	main(void)
 {

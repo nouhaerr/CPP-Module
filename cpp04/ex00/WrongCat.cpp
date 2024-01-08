@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:44:11 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:44:12 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:33:26 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ WrongCat&   WrongCat::operator=(WrongCat const &copy)
 WrongCat::~WrongCat()
 {
 	std::cout << "Destructor for WrongCat is called" << std::endl;
-}
-
-std::string	WrongCat::getType(void)const
-{
-	return this->type;
 }
 
 void	WrongCat::makeSound()const
