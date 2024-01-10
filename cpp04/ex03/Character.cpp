@@ -19,9 +19,8 @@ Character::Character(void)
 		this->inventory[i] = NULL;   
 }
 
-Character::Character(std::string const &name)
+Character::Character(std::string const &name) : name(name)
 {
-	this->name = name;
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
 }
@@ -35,7 +34,9 @@ Character&	Character::operator=(Character const &copy)
 {
 	if (this != &copy)
 	{
-		this->name = copy.getName();
+		this->name = copy.name;
+		for (int i = 0; i < 4; i++)
+			delete this->inventory[i];
 		for (int i = 0; i < 4; i++)
 			this->inventory[i] = copy.inventory[i]->clone();
 	}

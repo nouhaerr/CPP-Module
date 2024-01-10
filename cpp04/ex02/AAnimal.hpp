@@ -24,8 +24,9 @@ class AAnimal {
 	public:
 		AAnimal(void);
 		AAnimal(AAnimal const &copy);
-		virtual AAnimal&	operator=(AAnimal const &copy);
+		AAnimal&	operator=(AAnimal const &copy);
 		virtual ~AAnimal();
+
 		virtual void	makeSound()const = 0;
 
 		std::string		getType(void)const;

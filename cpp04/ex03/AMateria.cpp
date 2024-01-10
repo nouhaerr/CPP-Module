@@ -31,7 +31,7 @@ AMateria&	AMateria::operator=(AMateria const &copy)
 {
 	if (this != &copy)
 	{
-		this->type = copy.getType();
+		this->type = copy.type;
 	}
 	return *this;
 }

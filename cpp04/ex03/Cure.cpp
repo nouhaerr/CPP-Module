@@ -12,7 +12,7 @@
 
 #include "Cure.hpp"
 
-Cure::Cure(void)
+Cure::Cure(void): AMateria("cure")
 {
 	this->type = "cure";
 }
@@ -25,7 +25,7 @@ Cure::Cure(Cure const &copy) : AMateria(copy)
 Cure&	Cure::operator=(Cure const &copy)
 {
 	if (this != &copy)
-		this->type = copy.getType();
+		this->type = copy.type;
 	return *this;
 }
 

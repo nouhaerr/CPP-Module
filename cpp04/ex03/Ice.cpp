@@ -12,7 +12,7 @@
 
 #include "Ice.hpp"
 
-Ice::Ice(void)
+Ice::Ice(void) : AMateria("ice")
 {
 	this->type = "ice";
 }
@@ -26,7 +26,7 @@ Ice&	Ice::operator=(Ice const &copy)
 {
 	if (this != &copy)
 	{
-		this->type = copy.getType();
+		this->type = copy.type;
 	}
 	return *this;
 }

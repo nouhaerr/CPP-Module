@@ -16,6 +16,7 @@
 #include "Character.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
+# include <cstdlib>
 
 int	main(void)
 {
@@ -40,3 +41,10 @@ int	main(void)
 
 	return 0;
 }
+
+// int	main(void)
+// {
+// 	main2();
+// 	system("leaks materia");
+// 	return 0;
+// }

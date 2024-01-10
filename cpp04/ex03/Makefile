@@ -14,7 +14,12 @@ CPP = c++
 
 CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
-CSRCS =	*.cpp \
+CSRCS =	main.cpp \
+		AMateria.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 

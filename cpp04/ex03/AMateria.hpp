@@ -29,7 +29,7 @@ class AMateria {
 		AMateria(void);
 		AMateria(std::string const & type);
 		AMateria(AMateria const &copy);
-		virtual AMateria&	operator=(AMateria const &copy);
+		AMateria&	operator=(AMateria const &copy);
         virtual ~AMateria();
 
         std::string const &	getType() const; //Returns the materia type
