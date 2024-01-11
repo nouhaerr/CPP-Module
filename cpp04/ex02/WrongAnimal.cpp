@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:44:56 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:44:57 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/10 21:22:56 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 WrongAnimal::WrongAnimal(void)
 {
 	this->type = "WrongAnimal";
-	std::cout << "WrongAnimal default constructor is created" << std::endl;
+	std::cout << "WrongAnimal:: default constructor is created" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &copy)
 {
 	*this = copy;
-	std::cout << "WrongAnimal Copy constructor is" << std::endl;
+	std::cout << "WrongAnimal:: Copy constructor is" << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(WrongAnimal const &copy)
@@ -35,7 +35,7 @@ WrongAnimal& WrongAnimal::operator=(WrongAnimal const &copy)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor called" << std::endl;
+	std::cout << "WrongAnimal:: destructor called" << std::endl;
 }
 
 std::string	WrongAnimal::getType(void)const

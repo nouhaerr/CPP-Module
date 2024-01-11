@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:43:34 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:43:35 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/10 21:58:55 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ Dog::Dog(void)
 {
 	this->type = "Dog";
 	this->brain = new Brain();
-	std::cout << "Default constructor for Dog is created" << std::endl;
+	std::cout << "Dog:: Default constructor is created" << std::endl;
 }
 
 Dog::Dog(Dog const &copy) : Animal(copy)
 {
 	*this = copy;
-	std::cout << "Copy constructor for Dog is created" << std::endl;
+	std::cout << "Dog:: Copy constructor is created" << std::endl;
 }
 
 Dog&	Dog::operator=(Dog const &copy)
@@ -39,7 +39,7 @@ Dog&	Dog::operator=(Dog const &copy)
 Dog::~Dog()
 {
 	delete this->brain;
-	std::cout << "Destructor for Dog is called" << std::endl;
+	std::cout << "Dog:: Destructor is called" << std::endl;
 }
 
 void	Dog::makeSound()const

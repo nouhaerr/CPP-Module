@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:41:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/08 22:36:48 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/10 21:55:41 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(void)
 	cat->makeSound();
 	dog->makeSound();
 	animal->makeSound();
+
 	std::cout << std::endl;
 	delete animal;
 	delete cat;

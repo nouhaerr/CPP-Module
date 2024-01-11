@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:49:41 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:49:42 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/11 02:00:10 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ Character::Character(void)
 	this->name = "";
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;   
+	std::cout << "Character:: Constructor is called" << std::endl;
 }
 
 Character::Character(std::string const &name) : name(name)
 {
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
+	std::cout << "Character:: Constructor with parameters is called" << std::endl;
 }
 
 Character::Character(Character const &copy)
@@ -50,6 +52,7 @@ Character::~Character()
 		if (this->inventory[i])
 			delete this->inventory[i];
 	}
+	std::cout << "Character:: Destructor is called" << std::endl;
 }
 
 std::string const &	Character::getName() const
@@ -68,6 +71,7 @@ void	Character::equip(AMateria* m)
 		}
 	}
 }
+
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3)

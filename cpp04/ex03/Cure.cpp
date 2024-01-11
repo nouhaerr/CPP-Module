@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:50:46 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:50:47 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/11 02:00:18 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cure::Cure(void): AMateria("cure")
 {
 	this->type = "cure";
+	std::cout << "Cure:: Constructor is called" << std::endl;
 }
 
 Cure::Cure(Cure const &copy) : AMateria(copy)
@@ -29,7 +30,9 @@ Cure&	Cure::operator=(Cure const &copy)
 	return *this;
 }
 
-Cure::~Cure() {}
+Cure::~Cure() {
+	std::cout << "Cure:: Destructor is called" << std::endl;
+}
 
 AMateria*	Cure::clone() const
 {

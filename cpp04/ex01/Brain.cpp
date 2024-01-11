@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 20:26:30 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/08 20:26:31 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/10 21:14:37 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Brain::Brain(void)
 {
-	std::cout << "Default constructor for Brain is called" << std::endl;
+	std::cout << "Brain:: Default constructor is called" << std::endl;
 }
 
 Brain::Brain(Brain const &copy)
 {
 	*this = copy;
-	std::cout << "Copy constructor for Brain is called" << std::endl;
+	std::cout << "Brain:: Copy constructor is called" << std::endl;
 }
 
 Brain&	Brain::operator=(Brain const &copy)
@@ -35,7 +35,7 @@ Brain&	Brain::operator=(Brain const &copy)
 
 Brain::~Brain()
 {
-	std::cout << "Destructor called for Brain" << std::endl;
+	std::cout << "Brain:: Destructor called" << std::endl;
 }
 
 void	Brain::setIdeas(std::string *ideas)

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:53:15 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:53:16 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/11 02:01:24 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ MateriaSource::MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++)
 		this->materia[i] = NULL;
+	std::cout << "MateriaSource:: Default constructor is called" << std::endl;
 }
+
 MateriaSource::MateriaSource(MateriaSource const &copy)
 {
 	*this = copy;
@@ -41,7 +43,9 @@ MateriaSource::~MateriaSource()
 		if (this->materia[i])
 			delete this->materia[i];
 	}
+	std::cout << "MateriaSource:: Destructor is called" << std::endl;
 }
+
 void	MateriaSource::learnMateria(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)

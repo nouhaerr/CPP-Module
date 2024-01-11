@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:43:12 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:43:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/10 21:22:00 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ Cat::Cat(void)
 {
 	this->type = "Cat";
 	this->brain = new Brain();
-	std::cout << "Default Constructor for Cat is created" << std::endl;
+	std::cout << "Cat:: Default Constructor is created" << std::endl;
 }
 
 Cat::Cat(Cat const &copy) : AAnimal(copy)
 {
 	*this = copy;
-	std::cout << "Copy constructor for Cat is created" << std::endl;
+	std::cout << "Cat:: Copy constructor is created" << std::endl;
 }
 
 Cat&	Cat::operator=(Cat const &copy)
@@ -39,7 +39,7 @@ Cat&	Cat::operator=(Cat const &copy)
 Cat::~Cat()
 {
 	delete this->brain;
-	std::cout << "Destructor for Cat is called" << std::endl;
+	std::cout << "Cat:: Destructor is called" << std::endl;
 }
 
 void	Cat::makeSound() const

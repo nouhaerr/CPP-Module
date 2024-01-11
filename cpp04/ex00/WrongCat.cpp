@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:44:11 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/08 20:33:26 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/10 21:13:05 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 WrongCat::WrongCat(void)
 {
     this->type = "WrongCat";
-    std::cout << "Default constructor for WrongCat is created" << std::endl;
+    std::cout << "WrongCat:: Default constructor is created" << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy)
 {
     *this = copy;
-    std::cout << "Copy constructor for WrongCat is created" << std::endl;
+    std::cout << "WrongCat:: Copy constructor is created" << std::endl;
 }
 
 WrongCat&   WrongCat::operator=(WrongCat const &copy)
@@ -36,7 +36,7 @@ WrongCat&   WrongCat::operator=(WrongCat const &copy)
 
 WrongCat::~WrongCat()
 {
-	std::cout << "Destructor for WrongCat is called" << std::endl;
+	std::cout << "WrongCat:: Destructor is called" << std::endl;
 }
 
 void	WrongCat::makeSound()const

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:50:17 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/12/30 07:50:18 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/11 02:00:24 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Ice::Ice(void) : AMateria("ice")
 {
 	this->type = "ice";
+	std::cout << "Ice:: Constructor is called" << std::endl;
 }
 
 Ice::Ice(Ice const &copy) : AMateria(copy)
@@ -31,7 +32,9 @@ Ice&	Ice::operator=(Ice const &copy)
 	return *this;
 }
 
-Ice::~Ice() {}
+Ice::~Ice() {
+	std::cout << "Ice:: Destructor is called" << std::endl;
+}
 	
 AMateria*	Ice::clone() const
 {
