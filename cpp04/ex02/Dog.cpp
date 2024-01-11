@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:43:34 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/10 21:22:39 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/11 03:41:43 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ Dog&	Dog::operator=(Dog const &copy)
 	if (this != &copy)
 	{
 		this->type = copy.getType();
+		if (this->brain)
+			delete this->brain;
 		this->brain = new Brain(*(copy.brain));
 		AAnimal::operator=(copy);
 	}

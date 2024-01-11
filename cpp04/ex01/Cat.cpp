@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:43:12 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/10 23:06:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/11 03:51:18 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ Cat&	Cat::operator=(Cat const &copy)
 	if (this != &copy)
 	{
 		this->type = copy.getType();
+		if (this->brain)
+			delete this->brain;
 		this->brain = new Brain(*(copy.brain));
 		Animal::operator=(copy);
 	}
