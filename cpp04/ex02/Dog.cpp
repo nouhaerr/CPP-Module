@@ -14,9 +14,9 @@
 
 Dog::Dog(void)
 {
+	std::cout << "Dog:: Default constructor is created" << std::endl;
 	this->type = "Dog";
 	this->brain = new Brain();
-	std::cout << "Dog:: Default constructor is created" << std::endl;
 }
 
 Dog::Dog(Dog const &copy) : AAnimal(copy)
@@ -49,9 +49,18 @@ void	Dog::makeSound()const
 	std::cout << "Dog:: Haou, Haou, Haaw" << std::endl;
 }
 
-void	Dog::setBrain(Brain *brain)
+void	Dog::setBrain(Brain *newBrain)
 {
-	this->brain = brain;
+	if (this->brain != newBrain)
+	{
+		if (this->brain)
+			delete brain;
+		if (newBrain) {
+			this->brain = new Brain(*newBrain);
+		}
+		else
+			this->brain = new Brain();
+	}
 }
 
 Brain	*Dog::getBrain(void) const

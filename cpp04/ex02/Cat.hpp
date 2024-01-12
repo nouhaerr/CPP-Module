@@ -28,7 +28,7 @@ class Cat : public AAnimal {
 		~Cat();
 
 		void	makeSound()const;
-		void	setBrain(Brain *brain);
+		void	setBrain(Brain *newBrain);
 		Brain	*getBrain(void) const;
 };
 

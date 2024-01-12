@@ -14,9 +14,9 @@
 
 Cat::Cat(void)
 {
+	std::cout << "Cat:: Default Constructor is created" << std::endl;
 	this->type = "Cat";
 	this->brain = new Brain();
-	std::cout << "Cat:: Default Constructor is created" << std::endl;
 }
 
 Cat::Cat(Cat const &copy) : AAnimal(copy)
@@ -49,9 +49,18 @@ void	Cat::makeSound() const
 	std::cout << "Cat:: meows, meows" << std::endl;
 }
 
-void	Cat::setBrain(Brain *brain)
+void	Cat::setBrain(Brain *newBrain)
 {
-	this->brain = brain;
+	if (this->brain != newBrain)
+	{
+		if (this->brain)
+			delete brain;
+		if (newBrain) {
+			this->brain = new Brain(*newBrain);
+		}
+		else
+			this->brain = new Brain();
+	}
 }
 
 Brain	*Cat::getBrain(void) const

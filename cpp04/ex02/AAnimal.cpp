@@ -14,14 +14,14 @@
 
 AAnimal::AAnimal(void)
 {
-	std::cout << "AAnimal default constructor is created" << std::endl;
+	std::cout << "Abstract Animal Default constructor is created" << std::endl;
 	this->type = "default_AAnimal";
 }
 
 AAnimal::AAnimal(AAnimal const &copy)
 {
 	*this = copy;
-	std::cout << "AAnimal copy constructor is created" << std::endl;
+	std::cout << "Abstract Animal copy constructor is created" << std::endl;
 }
 
 AAnimal&	AAnimal::operator=(AAnimal const &copy)
@@ -35,7 +35,7 @@ AAnimal&	AAnimal::operator=(AAnimal const &copy)
 
 AAnimal::~AAnimal()
 {
-	std::cout << "AAnimal destructor called" << std::endl;
+	std::cout << "Abstract Animal destructor called" << std::endl;
 }
 
 std::string	AAnimal::getType(void)const

@@ -28,7 +28,7 @@ class Dog : public AAnimal {
 		~Dog();
 
 		void	makeSound()const;
-		void	setBrain(Brain *brain);
+		void	setBrain(Brain *newBrain);
 		Brain	*getBrain(void) const;
 };
 
