@@ -29,7 +29,8 @@ Character::Character(std::string const &name) : name(name)
 
 Character::Character(Character const &copy)
 {
-    *this = copy;
+	*this = copy;
+	std::cout << "Character:: Copy constructor is called" << std::endl;
 }
 
 Character&	Character::operator=(Character const &copy)
@@ -38,9 +39,16 @@ Character&	Character::operator=(Character const &copy)
 	{
 		this->name = copy.name;
 		for (int i = 0; i < 4; i++)
-			delete this->inventory[i];
-		for (int i = 0; i < 4; i++)
-			this->inventory[i] = copy.inventory[i]->clone();
+		{	
+			if (this->inventory[i]) {
+				delete this->inventory[i];
+				this->inventory[i] = NULL;
+			}
+		}
+		for (int i = 0; i < 4; i++) {
+			if (copy.inventory[i])
+				this->inventory[i] = copy.inventory[i]->clone();
+		}
 	}
 	return *this;
 }
@@ -62,6 +70,11 @@ std::string const &	Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
+	if (!m)
+	{
+		std::cout << this->name << " tried to equip nothing!!\n";
+		return ;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (!this->inventory[i])
@@ -75,11 +88,18 @@ void	Character::equip(AMateria* m)
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3)
-		this->inventory[idx] = NULL;
+	{
+		if (!(this->inventory)[idx])
+			std::cout << this->name << " has nothing equipped at slot " << idx << ", he can't unequip it\n";
+		else
+			this->inventory[idx] = NULL;
+	}
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx <= 3 && this->inventory[idx])
 		this->inventory[idx]->use(target);
+	else
+		std::cout << this->name << "Nothing found to use at index " << idx << std::endl;
 }

@@ -21,6 +21,7 @@ Ice::Ice(void) : AMateria("ice")
 Ice::Ice(Ice const &copy) : AMateria(copy)
 {
 	*this = copy;
+	std::cout << "Cure:: Copy constructor is called" << std::endl;
 }
 
 Ice&	Ice::operator=(Ice const &copy)

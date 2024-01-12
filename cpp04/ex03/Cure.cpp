@@ -21,6 +21,7 @@ Cure::Cure(void): AMateria("cure")
 Cure::Cure(Cure const &copy) : AMateria(copy)
 {
 	*this = copy;
+	std::cout << "Cure:: Copy constructor is called" << std::endl;
 }
 
 Cure&	Cure::operator=(Cure const &copy)
