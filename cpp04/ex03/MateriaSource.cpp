@@ -22,6 +22,7 @@ MateriaSource::MateriaSource(void)
 MateriaSource::MateriaSource(MateriaSource const &copy)
 {
 	*this = copy;
+	std::cout << "MateriaSource:: Copy constructor is called" << std::endl;
 }
 
 MateriaSource&	MateriaSource::operator=(MateriaSource const &copy)
@@ -29,9 +30,16 @@ MateriaSource&	MateriaSource::operator=(MateriaSource const &copy)
 	if (this != &copy)
 	{
 		for (int i = 0; i < 4; i++)
-			delete this->materia[i];
-		for (int i = 0; i < 4; i++)
-			this->materia[i] = copy.materia[i]->clone();
+		{
+			if (this->materia[i]) {
+				delete this->materia[i];
+				this->materia[i] = NULL;
+			}
+		}
+		for (int i = 0; i < 4; i++) {
+			if (copy.materia[i])
+				this->materia[i] = copy.materia[i]->clone();
+		}
 	}
 	return *this;
 }
@@ -65,5 +73,5 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		if (this->materia[i] && type == this->materia[i]->getType())
 			return (this->materia[i]->clone());
 	}
-	return 0;
+	return NULL;
 }

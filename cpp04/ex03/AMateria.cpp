@@ -27,6 +27,7 @@ AMateria::AMateria(std::string const & type)
 AMateria::AMateria(AMateria const &copy)
 {
 	*this = copy;
+	std::cout << "AMateria:: Copy constructor with parameters is called" << std::endl;
 }
 
 AMateria&	AMateria::operator=(AMateria const &copy)

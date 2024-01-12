@@ -39,7 +39,7 @@ Character&	Character::operator=(Character const &copy)
 	{
 		this->name = copy.name;
 		for (int i = 0; i < 4; i++)
-		{	
+		{
 			if (this->inventory[i]) {
 				delete this->inventory[i];
 				this->inventory[i] = NULL;
