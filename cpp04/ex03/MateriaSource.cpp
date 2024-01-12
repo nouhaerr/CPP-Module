@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:53:15 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/11 02:01:24 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:38:37 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::MateriaSource(MateriaSource const &copy)
 {
-	*this = copy;
 	std::cout << "MateriaSource:: Copy constructor is called" << std::endl;
+	*this = copy;
 }
 
 MateriaSource&	MateriaSource::operator=(MateriaSource const &copy)

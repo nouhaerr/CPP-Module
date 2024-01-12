@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:43:12 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/11 03:51:18 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:39:44 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Cat::Cat(void)
 
 Cat::Cat(Cat const &copy) : Animal(copy)
 {
-	*this = copy;
 	std::cout << "Cat:: Copy constructor is created" << std::endl;
+	*this = copy;
 }
 
 Cat&	Cat::operator=(Cat const &copy)

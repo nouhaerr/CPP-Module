@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:41:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/11 03:48:27 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:04:16 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "WrongCat.hpp"
 #include "Brain.hpp"
 
-int	main2(void)
+int	main(void)
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -81,12 +81,5 @@ int	main2(void)
 	delete [] catIdeas;
 	delete [] luluIdeas;
 
-	return 0;
-}
-
-int	main()
-{
-	main2();
-	// system("leaks brain");
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 07:49:41 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/11 02:00:10 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:37:40 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ Character::Character(std::string const &name) : name(name)
 
 Character::Character(Character const &copy)
 {
-	*this = copy;
 	std::cout << "Character:: Copy constructor is called" << std::endl;
+	*this = copy;
 }
 
 Character&	Character::operator=(Character const &copy)
