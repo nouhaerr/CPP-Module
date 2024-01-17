@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 20:56:58 by nerrakeb          #+#    #+#              #
-#    Updated: 2024/01/12 23:14:34 by nerrakeb         ###   ########.fr        #
+#    Updated: 2024/01/17 01:35:15 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CSRCS = main.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = bureaucrat
+NAME = form
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)

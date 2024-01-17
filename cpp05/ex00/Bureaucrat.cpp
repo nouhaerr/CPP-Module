@@ -6,15 +6,14 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:48 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/12 22:35:31 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/17 02:06:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Constructor called" << std::endl;
 	setGrade(grade);
 }
 
@@ -28,9 +27,7 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &copy) {
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat() {
-    std::cout << "Destructor called" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 std::string	Bureaucrat::getName(void) const {
 	return this->_name;

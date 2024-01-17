@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/12 22:44:54 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/17 02:06:28 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 int	main(void)
 {
 	try {
-			Bureaucrat	b("Cosmetics", 1);
+			Bureaucrat	b("Cosmetics", 2);
+			b.incrementGrade();
 			std::cout << b << std::endl;
-			Bureaucrat	b1("Cosmetics", 180);
+			Bureaucrat	b1("Mohamed", 150);
 			std::cout << b1 << std::endl;
+			b1.decrementGrade();
 	}
 	catch (std::exception & e)
 	{

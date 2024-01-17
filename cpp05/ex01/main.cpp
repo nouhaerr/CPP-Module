@@ -6,24 +6,39 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/12 22:44:54 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/17 01:58:23 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int	main(void)
-{
-	try {
-			Bureaucrat	b("Cosmetics", 1);
-			std::cout << b << std::endl;
-			Bureaucrat	b1("Cosmetics", 180);
-			std::cout << b1 << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
+int main(void) {
+    try {
+		Bureaucrat b("Lucy", 100);
+        Form form("SampleForm", 1, 75);
+		std::cout << b << "\n";
+		std::cout << form;
+		
+		b.signForm(form); // This couldn't sign
+		std::cout << form;
+		std::cout << std::string(45, '-') << std::endl;
 
-	return 0;
+
+		Bureaucrat br("Jason", 4);
+		Form form1("CandidatForm", 94, 33);
+        std::cout << br << "\n";
+		form1.beSigned(br);
+		std::cout << form1;
+		br.signForm(form1);
+
+		form.beSigned(b); // This should throw Form::GradeTooLowException
+
+	} catch (const std::exception& e) {
+
+		std::cout << std::string(45, '-') << std::endl;
+        std::cerr << "Exception: " << e.what() << "\n";
+    }
+
+    return 0;
 }
