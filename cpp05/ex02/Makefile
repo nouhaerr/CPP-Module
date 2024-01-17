@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 20:56:58 by nerrakeb          #+#    #+#              #
-#    Updated: 2024/01/17 02:18:32 by nerrakeb         ###   ########.fr        #
+#    Updated: 2024/01/17 02:33:18 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,9 @@ CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 CSRCS = main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
