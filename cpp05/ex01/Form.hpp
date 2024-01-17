@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 01:34:33 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/17 02:16:27 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Form {
 		int			getGradeRequiredToSign(void) const;
 		int			getGradeRequiredToExecute(void) const;
 		void		beSigned(const Bureaucrat& b);
+
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw();
