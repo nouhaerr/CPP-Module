@@ -6,7 +6,7 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 20:56:58 by nerrakeb          #+#    #+#              #
-#    Updated: 2024/01/18 00:53:39 by nerrakeb         ###   ########.fr        #
+#    Updated: 2024/01/18 23:07:06 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ CSRCS = main.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp \
+		Intern.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
-NAME = form
+NAME = intern
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)

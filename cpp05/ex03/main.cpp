@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:30:41 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 01:14:02 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:11:31 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,16 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
-int	main2(void)
+int	main(void)
 {
-	AForm* shrubbery = new ShrubberyCreationForm("home");
-	AForm* robot = new RobotomyRequestForm("Alice");
-	AForm* president = new PresidentialPardonForm("President");
-	try {
-		Bureaucrat	b("Lucy", 4);
+	Intern someRandomIntern;
+	AForm* rrf;
 
-		b.signForm(*shrubbery);
-		b.executeForm(*shrubbery);
-		b.signForm(*robot);
-		robot->execute(b);
-		b.signForm(*president);
-		president->execute(b);
-		
-	}
-	catch (const std::exception& e) {
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
-		std::cout << std::endl;
-		std::cerr << "Exception: " << e.what() << "\n";
-	}
-	delete shrubbery;
-	delete robot;
-	delete president;
-	return 0;
-}
+	AForm* scf;
 
-int main()
-{
-	main2();
-	// system("leaks form");
+	scf = someRandomIntern.makeForm("shrrt", "plant");
+	
 	return 0;
 }
