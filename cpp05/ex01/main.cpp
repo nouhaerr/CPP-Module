@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 01:58:23 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/18 01:08:33 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void) {
 		Bureaucrat b("Lucy", 100);
         Form form("SampleForm", 1, 75);
 		std::cout << b << "\n";
-		std::cout << form;
+		std::cout << form << "\n";
 		
 		b.signForm(form); // This couldn't sign
 		std::cout << form;
@@ -37,8 +37,8 @@ int main(void) {
 	} catch (const std::exception& e) {
 
 		std::cout << std::string(45, '-') << std::endl;
-        std::cerr << "Exception: " << e.what() << "\n";
-    }
+		std::cerr << "Exception: " << e.what() << "\n";
+	}
 
     return 0;
 }

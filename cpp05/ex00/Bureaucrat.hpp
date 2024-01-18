@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:51 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 02:16:34 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:26:53 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ class Bureaucrat {
 
 		std::string		getName(void) const;
 		int				getGrade(void) const;
-		void			setGrade(int grade);	
+		void			setGrade(int grade);
 		void			incrementGrade(void);
 		void			decrementGrade(void);
 
 		class GradeTooHighException : public std::exception {
-			const char* what() const throw();
+			public:
+				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
-			const char* what() const throw();
+			public:
+				const char* what() const throw();
 		};
 };
 

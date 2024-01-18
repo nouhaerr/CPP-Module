@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 02:20:09 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/18 00:16:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -28,16 +29,17 @@ class AForm {
 
 	public:
 		AForm(void);
-		AForm(std::string name, int  gradeRequiredToSign, int gradeRequiredToExecute);
+		AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute);
 		AForm(AForm const &copy);
 		AForm&	operator=(AForm const &copy);
-		~AForm();
+		virtual ~AForm();
 
-		std::string	getName(void) const;
-		bool		getStatus(void) const;
-		int			getGradeRequiredToSign(void) const;
-		int			getGradeRequiredToExecute(void) const;
-		void		beSigned(const Bureaucrat& b);
+		std::string		getName(void) const;
+		bool			getStatus(void) const;
+		int				getGradeRequiredToSign(void) const;
+		int				getGradeRequiredToExecute(void) const;
+		void			beSigned(const Bureaucrat& b);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -47,8 +49,12 @@ class AForm {
 			public:
 				const char* what() const throw();
 		};
+		class FormNotSignedException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 };
 
-std::ostream&	operator<<(std::ostream& os, Form const &form);
+std::ostream&	operator<<(std::ostream& os, AForm const &form);
 
 #endif

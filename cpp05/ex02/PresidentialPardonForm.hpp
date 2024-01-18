@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:59 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 02:30:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/18 00:51:11 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 
 class PresidentialPardonForm : public AForm {
 
+	private:
+		std::string	_target;
+
 	public:
-		PresidentialPardonForm(std::string& target);
+		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const &copy);
 		PresidentialPardonForm&  operator=(PresidentialPardonForm const &copy);
 		~PresidentialPardonForm();
+
+		void	execute(Bureaucrat const & executor) const;
 };
 
 #endif

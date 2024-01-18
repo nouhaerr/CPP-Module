@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 02:21:27 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/18 01:08:21 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ AForm::AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecu
 	_gradeRequiredToSign(gradeRequiredToSign), _gradeRequiredToExecute(gradeRequiredToExecute)
 {
 	this->_status = false;
-	if (_gradeRequiredToExecute < 1)
-		throw (Form::GradeTooHighException());
-	else if (_gradeRequiredToExecute > 150)
-		throw (Form::GradeTooLowException());
+	if (_gradeRequiredToExecute < 1 || _gradeRequiredToSign < 1)
+		throw (AForm::GradeTooHighException());
+	else if (_gradeRequiredToExecute > 150 || _gradeRequiredToSign > 150)
+		throw (AForm::GradeTooLowException());
 }
 
 AForm::AForm(AForm const &copy) : _name(copy._name),
@@ -64,12 +64,17 @@ int	AForm::getGradeRequiredToExecute(void) const
 
 const char*	AForm::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high!!";
+	return "Form:: Grade is too high!!";
 }
 
 const char*	AForm::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low!!";
+	return "Form:: Grade is too low!!";
+}
+
+const char*	AForm::FormNotSignedException::what() const throw()
+{
+	return "Form Not signed!";
 }
 
 void	AForm::beSigned(const Bureaucrat& b)
@@ -85,6 +90,6 @@ std::ostream&	operator<<(std::ostream& os, const AForm& form)
 	os << "Form: " << form.getName() << "\n";
 	os << "Signed: " << (form.getStatus() ? "Yes" : "No") << "\n";
 	os << "Grade Required To Sign: "<< form.getGradeRequiredToSign() << "\n";
-	os << "Grade Required To Execute: " << form.getGradeRequiredToExecute() << "\n";
+	os << "Grade Required To Execute: " << form.getGradeRequiredToExecute();
 	return os;
 }
