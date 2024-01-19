@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 00:16:07 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:20:34 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include <exception>
+# include <stdexcept>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -29,7 +29,7 @@ class AForm {
 
 	public:
 		AForm(void);
-		AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute);
+		AForm(const std::string &name, const int gradeRequiredToSign, const int gradeRequiredToExecute);
 		AForm(AForm const &copy);
 		AForm&	operator=(AForm const &copy);
 		virtual ~AForm();

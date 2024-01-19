@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:51 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 22:26:49 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:19:56 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <stdexcept>
 # include "Form.hpp"
 
 class Form;
@@ -26,6 +27,7 @@ class Bureaucrat {
 		int					_grade;
 
 	public:
+		Bureaucrat(void);
 		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(Bureaucrat const &copy);
 		Bureaucrat&	operator=(Bureaucrat const &copy);
@@ -45,6 +47,7 @@ class Bureaucrat {
 			public:
 				const char* what() const throw();
 		};
+
 		void			signForm(Form &f) const;
 };
 

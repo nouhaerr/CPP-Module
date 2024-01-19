@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:31 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 00:44:36 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:34:27 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class RobotomyRequestForm : public AForm {
 		std::string	_target;
 
 	public:
+		RobotomyRequestForm(void);
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm const &copy);
 		RobotomyRequestForm&  operator=(RobotomyRequestForm const &copy);

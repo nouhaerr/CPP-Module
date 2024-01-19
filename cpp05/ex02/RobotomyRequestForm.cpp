@@ -6,11 +6,14 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 00:58:41 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:46:24 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm(), _target("Travel")
+{}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotForm", 72, 45) {
 	this->_target = target;
@@ -38,7 +41,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	else if (executor.getGrade() > 45)
 		throw (AForm::GradeTooLowException());
 	else {
-		srand(time(NULL));
+		std::srand(std::time(NULL));
 		if (std::rand() % 2)
 			std::cout << this->_target << " has been robotomized successfully 50% of the time." << std::endl;
 		else

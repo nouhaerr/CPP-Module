@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 01:08:21 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:59:59 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AForm::AForm(void) : _name("Sam"), _status(false), _gradeRequiredToSign(1), _gradeRequiredToExecute(150)
 {}
 
-AForm::AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute) : _name(name),
+AForm::AForm(const std::string &name, const int gradeRequiredToSign, const int gradeRequiredToExecute) : _name(name),
 	_gradeRequiredToSign(gradeRequiredToSign), _gradeRequiredToExecute(gradeRequiredToExecute)
 {
 	this->_status = false;
@@ -87,7 +87,7 @@ void	AForm::beSigned(const Bureaucrat& b)
 
 std::ostream&	operator<<(std::ostream& os, const AForm& form)
 {
-	os << "Form: " << form.getName() << "\n";
+	os << "Form name: " << form.getName() << "\n";
 	os << "Signed: " << (form.getStatus() ? "Yes" : "No") << "\n";
 	os << "Grade Required To Sign: "<< form.getGradeRequiredToSign() << "\n";
 	os << "Grade Required To Execute: " << form.getGradeRequiredToExecute();

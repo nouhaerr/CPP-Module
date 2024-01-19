@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:30:41 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 01:10:50 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:15:41 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int	main2(void)
+int	main(void)
 {
-	AForm* shrubbery = new ShrubberyCreationForm("home");
+	AForm* shrubbery = new ShrubberyCreationForm("Plant");
 	AForm* robot = new RobotomyRequestForm("Alice");
 	AForm* president = new PresidentialPardonForm("President");
 	try {
@@ -25,9 +25,12 @@ int	main2(void)
 
 		b.signForm(*shrubbery);
 		b.executeForm(*shrubbery);
+	
 		b.signForm(*robot);
 		robot->execute(b);
+
 		b.signForm(*president);
+		std::cout << *president << "\n";
 		president->execute(b);
 		
 	}
@@ -39,12 +42,5 @@ int	main2(void)
 	delete shrubbery;
 	delete robot;
 	delete president;
-	return 0;
-}
-
-int main()
-{
-	main2();
-	// system("leaks form");
 	return 0;
 }

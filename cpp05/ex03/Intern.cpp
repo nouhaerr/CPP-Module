@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:12:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 23:07:31 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:26:05 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ Intern	Intern::operator=(Intern const &copy)
 
 Intern::~Intern() {}
 
-static AForm*	cloneShrubberyCreationForm(std::string target) {
+static AForm*	cloneShrubberyCreationForm(const std::string target) {
 	return (new ShrubberyCreationForm(target));
 }
 
-static AForm*	cloneRobotomyRequestForm(std::string target) {
+static AForm*	cloneRobotomyRequestForm(const std::string target) {
 	return (new RobotomyRequestForm(target));
 }
 
-static AForm*	clonePresidentialPardonForm(std::string target) {
+static AForm*	clonePresidentialPardonForm(const std::string target) {
 	return (new PresidentialPardonForm(target));
 }
 
-AForm*	Intern::makeForm(std::string formName, std::string target) {
+AForm*	Intern::makeForm(const std::string formName, const std::string target) {
 	AForm	*(*formFunct[])(const std::string target) = {
 		&cloneShrubberyCreationForm,
 		&cloneRobotomyRequestForm,

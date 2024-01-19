@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:05 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 23:35:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:31:47 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ShrubberyCreationForm : public AForm {
 		void	drawBranches(std::ofstream& outf, int count) const;
 
     public:
+		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &copy);
 		ShrubberyCreationForm&  operator=(ShrubberyCreationForm const &copy);

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:51 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/17 22:26:53 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:24:43 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <stdexcept>
 
 class Bureaucrat {
 
@@ -23,6 +24,7 @@ class Bureaucrat {
 		int					_grade;
 
 	public:
+		Bureaucrat(void);
 		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(Bureaucrat const &copy);
 		Bureaucrat&	operator=(Bureaucrat const &copy);

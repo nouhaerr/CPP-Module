@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:12:40 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/18 23:18:09 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:07:46 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Intern {
 		Intern	operator=(Intern const &copy);
 		~Intern();
 
-        AForm*	makeForm(std::string formName, std::string target);
+        AForm*	makeForm(const std::string formName, const std::string target);
 };
 
 #endif
