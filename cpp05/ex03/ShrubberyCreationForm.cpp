@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 21:33:59 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:54:58 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,33 +51,21 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 			if (!outf.is_open()) {
 				throw (std::ios_base::failure("Failed to open the file for writing."));
 			}
-			for (int i = 0; i < 20; ++i) {
-					drawSpaces(outf, 20 - i - 1);
-					drawBranches(outf, 2 * i + 1);
-					outf << std::endl;
-				}
-
-				drawSpaces(outf, 20 - 1);
-				outf << "|" << std::endl;
-				outf.close();
+			outf << std::endl;
+			outf << "                ,@@@@@@@, " << std::endl;
+			outf << "        ,,,.   ,@@@@@@/@@,  .oo8888o.	" << std::endl;
+			outf << "     ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o	" << std::endl;
+			outf << "    ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'	" << std::endl;
+			outf << "    %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'	" << std::endl;
+			outf << "    %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'	" << std::endl; 
+			outf << "    `&%\\ ` /%&'    |.|        \\ '|8'	" << std::endl;
+			outf << "        |o|        | |         | |	" << std::endl;
+			outf << "	    |.|        | |         | |	" << std::endl;
+			outf << "     \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
+			
+			outf.close();
 			}
 		catch (const std::ios_base::failure& e)
 			{std::cerr << "Caught an ios_base::failure exception: " << e.what() << std::endl;}
-	}
-}
-
-void	ShrubberyCreationForm::drawSpaces(std::ofstream& outf, int count) const
-{
-	for (int i = 0; i < count; ++i)
-	{
-		outf << " ";
-	}
-}
-
-void	ShrubberyCreationForm::drawBranches(std::ofstream& outf, int count) const
-{
-	for (int i = 0; i < count; ++i)
-	{
-		outf << "*";
 	}
 }
