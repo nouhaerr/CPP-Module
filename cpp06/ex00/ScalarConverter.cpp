@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:22:49 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/21 23:52:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:09:54 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ void	ScalarConverter::toInt(const std::string &litteral)
 	}
 	else
 	{
-		if (std::isalpha(litteral[0]) && litteral.length() > 1)
-			std::cout << "int: impossible" << std::endl;
-		else if (litteral.size() == 1 && std::isalpha(litteral[0]))
+		if (litteral.size() == 1 && std::isprint(litteral[0]))
 		{
 			int e = static_cast<int>(litteral[0]);
 			std::cout << "int: " << e << std::endl;
 		}
-		else
+		else if (!Helper::isdigitstring(litteral))
+			std::cout << "int: impossible" << std::endl;
+		else 
 			std::cout << "int: " << e << std::endl;
 	}
 }

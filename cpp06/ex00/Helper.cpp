@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:35:22 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/21 21:28:50 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:13:49 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 bool	Helper::isdigitstring(const std::string &strnbr)
 {
 	int		j = 0;
+	size_t	i = 0;
 
-	for (size_t i = 0; i < strnbr.length(); i++)
+	if (strnbr[j] == '-')
+		j++;
+	for (i = j ; i < strnbr.length(); i++)
 	{
 		if (strnbr[i] >= 48 && strnbr[i] <= 57)
 			j++;

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 15:22:51 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/22 19:07:33 by nerrakeb         ###   ########.fr       */
+/*   Created: 2024/01/22 23:40:11 by nerrakeb          #+#    #+#             */
+/*   Updated: 2024/01/23 00:00:48 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef B_HPP
+# define B_HPP
 
-int	main(int ac, char *av[])
-{
-	std::string	arg;
+# include "Base.hpp"
 
-	if (ac != 2)
-	{
-		std::cerr << "Wrong nbr of arguments !!" << std::endl;
-		return (1);
-	}
+class B : public Base {
 
-	arg = av[1];
-	ScalarConverter::convert(arg);
+	public:
+		Base *	generate(void);
+		void	identify(Base* p);
+		void	identify(Base& p);
+};
 
-	return 0;
-}
+
+#endif
