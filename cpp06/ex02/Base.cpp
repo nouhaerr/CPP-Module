@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 18:56:08 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 23:53:40 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 # include "B.hpp"
 # include "C.hpp"
 
-Base::~Base()
-{
-}
+Base::~Base() {}
 
 Base *	Base::generate(void)
 {
@@ -34,33 +32,27 @@ Base *	Base::generate(void)
 
 void	Base::identify(Base* p)
 {
-	if (A* derivedA = dynamic_cast<A*>(p))
+	if (dynamic_cast<A*>(p))
 		std::cout << "Type identified: A." << std::endl;
-	else if (B* derivedB = dynamic_cast<B*>(p))
+	else if (dynamic_cast<B*>(p))
 		std::cout << "Type identified: B." << std::endl;
-	else if (C* derivedC = dynamic_cast<C*>(p))
+	else if (dynamic_cast<C*>(p))
 		std::cout << "Type identified: C." << std::endl;
 	else
-		std::cout << "Type not identified." << std::endl;
+		std::cout << "Cast failed." << std::endl;
 }
 
 void	Base::identify(Base& p)
 {
 	try {
-		A& derivedA = dynamic_cast<A&>(p);
-		std::cout << "Type identified with reference: A." << std::endl;
+		if (dynamic_cast<A*>(&p))
+			std::cout << "Type identified with reference: A." << std::endl;
+		else if (dynamic_cast<B*>(&p))
+			std::cout << "Type identified with reference: B." << std::endl;
+		else if (dynamic_cast<C*>(&p))
+			std::cout << "Type identified with reference: C." << std::endl;
 	} catch (const std::bad_cast&) {
-		try {
-				B& derivedB = dynamic_cast<B&>(p);
-				std::cout << "Type identified with reference: B." << std::endl;
-			} catch (const std::bad_cast&) {
-				try {
-					C& derivedC = dynamic_cast<C&>(p);
-					std::cout << "Type identified with reference: C." << std::endl;
-				} catch (const std::bad_cast&) {
-					std::cerr << "Type not identified." << std::endl;
-				}
-		}
+		std::cerr << "Cast failed." << std::endl;
 	}
 }
 

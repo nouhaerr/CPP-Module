@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:48 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 21:40:01 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:24:38 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,22 +72,19 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw()
 void	Bureaucrat::signForm(AForm &f) const
 {
 	try {
-			f.beSigned(*this);
-			std::cout << *this << " signed " << f.getName() << "\n";
-		}
-	catch (const AForm::GradeTooLowException& e) {
-		std::cout << *this << " couldn't sign " << f.getName() << " because " << e.what() << ".\n";
-		}
+		f.beSigned(*this);
+		std::cout << this->_name << " signed " << f.getName() << "\n";
+	} catch (const AForm::GradeTooLowException& e) {
+		std::cout << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << ".\n";
+	}
 }
 
 void	Bureaucrat::executeForm(AForm const & form) {
 	try {
 		form.execute(*this);
-		std::cout << *this << " executed " << form << "\n";
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << form << " can't be executed because " << e.what() << std::endl;
+		std::cout << this->_name << " executed " << form.getName() << "\n";
+	} catch (const std::exception& e) {
+		std::cerr << form.getName() << " can't be executed because " << e.what() << std::endl;
 	}
 }
 

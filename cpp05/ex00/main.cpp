@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 18:14:59 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 20:46:42 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(void)
 	catch (std::exception & e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+
 	return 0;
 }

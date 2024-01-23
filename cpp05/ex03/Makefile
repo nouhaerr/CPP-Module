@@ -6,13 +6,13 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 20:56:58 by nerrakeb          #+#    #+#              #
-#    Updated: 2024/01/18 23:07:06 by nerrakeb         ###   ########.fr        #
+#    Updated: 2024/01/23 21:16:10 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 CSRCS = main.cpp \
 		Bureaucrat.cpp \

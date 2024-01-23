@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 21:59:59 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:09:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 AForm::AForm(void) : _name("Sam"), _status(false), _gradeRequiredToSign(1), _gradeRequiredToExecute(150)
 {}
 
-AForm::AForm(const std::string &name, const int gradeRequiredToSign, const int gradeRequiredToExecute) : _name(name),
+AForm::AForm(const std::string &name, const int gradeRequiredToSign, const int gradeRequiredToExecute) : _name(name), _status(false),
 	_gradeRequiredToSign(gradeRequiredToSign), _gradeRequiredToExecute(gradeRequiredToExecute)
 {
-	this->_status = false;
 	if (_gradeRequiredToExecute < 1 || _gradeRequiredToSign < 1)
 		throw (AForm::GradeTooHighException());
 	else if (_gradeRequiredToExecute > 150 || _gradeRequiredToSign > 150)
@@ -33,8 +32,7 @@ AForm::AForm(AForm const &copy) : _name(copy._name),
 
 AForm&	AForm::operator=(AForm const &copy)
 {
-	if (this != &copy)
-	{
+	if (this != &copy) {
 		this->_status = copy._status;
 	}
 	return *this;

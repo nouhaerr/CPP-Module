@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:12:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 18:26:05 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:15:44 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ static AForm*	clonePresidentialPardonForm(const std::string target) {
 	return (new PresidentialPardonForm(target));
 }
 
+const char*	Intern::NameNotFound::what() const throw() {
+	return "Intern cannot found a form with this name.";
+}
+
+
 AForm*	Intern::makeForm(const std::string formName, const std::string target) {
 	AForm	*(*formFunct[])(const std::string target) = {
 		&cloneShrubberyCreationForm,
@@ -58,6 +63,5 @@ AForm*	Intern::makeForm(const std::string formName, const std::string target) {
 			return formFunct[i](target);
 		}
 	}
-	std::cout << "Intern cannot found a form with " << formName << " as name." << std::endl;
-	return NULL;
+	throw (Intern::NameNotFound());
 }

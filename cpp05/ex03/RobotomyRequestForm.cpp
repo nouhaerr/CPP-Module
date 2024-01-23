@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 17:21:57 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:20:10 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	if (!this->getStatus())
 		throw (AForm::FormNotSignedException());
-	else if (executor.getGrade() > 45)
+	else if (executor.getGrade() > this->getGradeRequiredToExecute())
 		throw (AForm::GradeTooLowException());
 	else {
 		std::srand(std::time(NULL));
 		if (std::rand() % 2)
-			std::cout << this->_target << " has been robotomized successfully 50% of the time." << std::endl;
+			std::cout << this->_target << " has been robotomized successfully." << std::endl;
 		else
 			std::cout << "The robotomy failed." << std::endl;	
 	}

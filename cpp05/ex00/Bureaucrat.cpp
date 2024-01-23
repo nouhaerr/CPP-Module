@@ -6,14 +6,13 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:48 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 17:43:07 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 20:44:18 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("Massira"), _grade(1)
-{}
+Bureaucrat::Bureaucrat(void) : _name("Massira"), _grade(1) {}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {

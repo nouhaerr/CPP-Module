@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 23:54:04 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/22 21:55:45 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 23:14:02 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define DATA_HPP
 
 struct Data {
-
     int data;
 };
 

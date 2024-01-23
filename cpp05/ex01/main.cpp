@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:54 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 22:16:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:41:45 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void) {
 		std::cout << b << "\n";
 		std::cout << form << "\n";
 		
-		b.signForm(form); // This couldn't sign
+		b.signForm(form);
 		std::cout << form << "\n";
 		std::cout << std::string(45, '-') << std::endl;
 
@@ -33,10 +33,8 @@ int main(void) {
 		std::cout << form1 << "\n";
 		br.signForm(form1);
 
-		form.beSigned(b); // This should throw Form::GradeTooLowException
-
+		form.beSigned(b);
 	} catch (const std::exception& e) {
-
 		std::cout << std::string(45, '-') << std::endl;
 		std::cerr << "Exception: " << e.what() << "\n";
 	}

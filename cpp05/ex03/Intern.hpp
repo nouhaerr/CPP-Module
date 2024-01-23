@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:12:40 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 22:07:46 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:30:35 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 class AForm;
 
 class Intern {
-	private:
-
     public:
 		Intern(void);
 		Intern(Intern const &copy);
@@ -30,6 +28,11 @@ class Intern {
 		~Intern();
 
         AForm*	makeForm(const std::string formName, const std::string target);
+
+		class NameNotFound : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif
