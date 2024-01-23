@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:48 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 21:39:13 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:56:21 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,11 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw()
 void	Bureaucrat::signForm(Form &f) const
 {
 	try {
-			f.beSigned(*this);
-			std::cout << *this << " signed " << f.getName() << "\n";
-		}
-	catch (const Form::GradeTooLowException& e) {
+		f.beSigned(*this);
+		std::cout << *this << " signed " << f.getName() << "\n";
+	} catch (const Form::GradeTooLowException& e) {
 		std::cout << *this << " couldn't sign " << f.getName() << " because " << e.what() << ".\n";
-		}
+	}
 }
 
 std::ostream&	operator<<(std::ostream& os, Bureaucrat const &bureau)

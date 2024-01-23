@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:01 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/19 21:26:30 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:57:25 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ Form::Form(Form const &copy) : _name(copy._name),
 
 Form&	Form::operator=(Form const &copy)
 {
-	if (this != &copy)
-	{
+	if (this != &copy) {
 		this->_status = copy._status;
 	}
 	return *this;

@@ -6,17 +6,16 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:40:24 by nerrakeb          #+#    #+#              #
-#    Updated: 2024/01/22 23:41:06 by nerrakeb         ###   ########.fr        #
+#    Updated: 2024/01/23 18:53:49 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS= #-Wall -Werror -Wextra -std=c++98
 
 CSRCS = main.cpp \
 		Base.cpp \
-		A.cpp B.cpp C.cpp \
 
 OBJ = $(CSRCS:.cpp=.o)
 
