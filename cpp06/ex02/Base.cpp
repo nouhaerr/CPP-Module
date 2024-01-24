@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 23:53:40 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:10:26 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,23 @@ void	Base::identify(Base* p)
 void	Base::identify(Base& p)
 {
 	try {
-		if (dynamic_cast<A*>(&p))
-			std::cout << "Type identified with reference: A." << std::endl;
-		else if (dynamic_cast<B*>(&p))
-			std::cout << "Type identified with reference: B." << std::endl;
-		else if (dynamic_cast<C*>(&p))
-			std::cout << "Type identified with reference: C." << std::endl;
+		A& derivedA = dynamic_cast<A&>(p);
+		(void)derivedA;
+		std::cout << "Type identified with reference: A." << std::endl;
 	} catch (const std::bad_cast&) {
-		std::cerr << "Cast failed." << std::endl;
+		try {
+			B& derivedB = dynamic_cast<B&>(p);
+			(void)derivedB;
+			std::cout << "Type identified with reference: B." << std::endl;
+		} catch (const std::bad_cast&) {
+			try {
+				C& derivedC = dynamic_cast<C&>(p);
+				(void)derivedC;
+				std::cout << "Type identified with reference: C." << std::endl;
+			} catch (const std::bad_cast&) {
+				std::cerr << "Cast failed." << std::endl;
+			}
+		}
 	}
 }
 
