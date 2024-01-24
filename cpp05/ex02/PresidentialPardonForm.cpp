@@ -6,14 +6,13 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:14:09 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 22:27:52 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:03:48 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm(), _target("Visa")
-{}
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm(), _target("Visa") {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PardonForm", 25, 5) {
 	this->_target = target;

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:12:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 21:15:44 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:07:19 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ AForm*	Intern::makeForm(const std::string formName, const std::string target) {
 		}
 	}
 	throw (Intern::NameNotFound());
+	return NULL;
 }

@@ -6,14 +6,13 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 21:00:10 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:11:19 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm(), _target("Travel")
-{}
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm(), _target("Travel") {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotForm", 72, 45) {
 	this->_target = target;

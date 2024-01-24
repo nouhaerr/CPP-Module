@@ -6,14 +6,15 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:13:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 22:17:26 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:07:26 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include <system_error>
+#include <cerrno>
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(), _target("Home")
-{}
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(), _target("Home") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyForm", 145, 137) {
 	this->_target = target;
@@ -48,7 +49,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		outputFile = this->_target + "_shrubbery";
 		outf.open(outputFile.c_str());
 		if (!outf.is_open())
-			std::cerr << "Failed to open the file for writing." << std::endl;
+			throw std::ios_base::failure("Failed to open the file for writing");
 		outf << std::endl;
 		outf << "                ,@@@@@@@, " << std::endl;
 		outf << "        ,,,.   ,@@@@@@/@@,  .oo8888o.	" << std::endl;
@@ -60,7 +61,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		outf << "        |o|        | |         | |	" << std::endl;
 		outf << "	    |.|        | |         | |	" << std::endl;
 		outf << "     \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
-		
+
 		outf.close();
 	}
 }

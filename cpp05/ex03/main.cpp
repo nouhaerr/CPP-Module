@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:30:41 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 21:07:38 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:43:52 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@ int	main(void)
 {
 	Intern someRandomIntern;
 	AForm* rrf;
-
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-
+	AForm* scf;
 	try {
-		AForm* scf;
 		Bureaucrat a("Juan", 1);
+
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		scf = someRandomIntern.makeForm("shrrt", "plant");
 		a.signForm(*scf);
 	} catch(std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
+	delete rrf;
+	delete scf;
 	return 0;
 }
