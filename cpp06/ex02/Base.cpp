@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/24 15:10:26 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/30 21:04:27 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 
 Base::~Base() {}
 
-Base *	Base::generate(void)
+Base *	generate(void)
 {
+	std::srand(static_cast<unsigned>(std::time(NULL)));
 	int	i = std::rand() % 3;
 
 	if (i == 0)
@@ -30,7 +31,7 @@ Base *	Base::generate(void)
 	return NULL;
 }
 
-void	Base::identify(Base* p)
+void	identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
 		std::cout << "Type identified: A." << std::endl;
@@ -42,7 +43,7 @@ void	Base::identify(Base* p)
 		std::cout << "Cast failed." << std::endl;
 }
 
-void	Base::identify(Base& p)
+void	identify(Base& p)
 {
 	try {
 		A& derivedA = dynamic_cast<A&>(p);

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:11 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 17:18:18 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/30 21:02:06 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "Base.hpp"
 
-class B : public Base {
-};
-
+class B : public Base {};
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:15 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/23 17:16:39 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/01/30 21:01:51 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ class Base
 {
 	public:
 		virtual	~Base();
-		Base *	generate(void);
-		void	identify(Base* p);
-		void	identify(Base& p);
 };
+
+Base *	generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif
