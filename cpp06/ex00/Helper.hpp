@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:35:29 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/21 23:45:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:56:02 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 class Helper {
 
 	private:
-
-	public:
 		Helper();
 		Helper(Helper const &copy);
 		Helper&	operator=(Helper const &copy);
+
+	public:
 		~Helper();
 
 		static bool	isdigitstring(const std::string &strnbr);
