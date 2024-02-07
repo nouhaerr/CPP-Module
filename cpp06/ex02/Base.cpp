@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/30 21:04:27 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:25:53 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ Base *	generate(void)
 	std::srand(static_cast<unsigned>(std::time(NULL)));
 	int	i = std::rand() % 3;
 
-	if (i == 0)
-		return (new A());
-	else if (i == 1)
-		return (new B());
-	else if (i == 2)
-		return (new C());
-	return NULL;
+	switch (i) {
+		case 0:
+			return (new A());
+		case 1:
+			return (new B());
+		case 2:
+			return (new C());
+		default :
+			return NULL;
+	}
 }
 
 void	identify(Base* p)
@@ -49,21 +52,20 @@ void	identify(Base& p)
 		A& derivedA = dynamic_cast<A&>(p);
 		(void)derivedA;
 		std::cout << "Type identified with reference: A." << std::endl;
-	} catch (const std::bad_cast&) {
-		try {
-			B& derivedB = dynamic_cast<B&>(p);
-			(void)derivedB;
-			std::cout << "Type identified with reference: B." << std::endl;
-		} catch (const std::bad_cast&) {
-			try {
-				C& derivedC = dynamic_cast<C&>(p);
-				(void)derivedC;
-				std::cout << "Type identified with reference: C." << std::endl;
-			} catch (const std::bad_cast&) {
-				std::cerr << "Cast failed." << std::endl;
-			}
+		return ;
+	} catch (const std::exception&) {}
+	try {
+		B& derivedB = dynamic_cast<B&>(p);
+		(void)derivedB;
+		std::cout << "Type identified with reference: B." << std::endl;
+		return ;
+	} catch (const std::exception&) {}
+	try {
+		C& derivedC = dynamic_cast<C&>(p);
+		(void)derivedC;
+		std::cout << "Type identified with reference: C." << std::endl;
+		return ;
+		} catch (const std::exception&) {
+			std::cerr << "Cast failed." << std::endl;
 		}
-	}
 }
-
-
