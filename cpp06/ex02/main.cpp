@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:22 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/07 22:24:43 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:36:31 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,10 @@
 int	main(void)
 {
 	Base*	base = generate();
-	Base	&b = *base;
 
 	identify(base);
-	identify(b);
+	identify(*base);
 
 	delete base;
 	return 0;
 }
-
-// int	main()
-// {
-// 	main2();
-// 	system("leaks base");
-// 	return 0;
-// }

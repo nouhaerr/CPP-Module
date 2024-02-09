@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:22:49 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/01/22 19:09:54 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:49:52 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ScalarConverter::convert(const std::string &arg)
 	toChar(arg);
 	toInt(arg);
 	toFloat(arg);
-	// toDouble(arg);
+	toDouble(arg);
 }
 
 void	ScalarConverter::toChar(const std::string &litteral)
@@ -89,11 +89,7 @@ void	ScalarConverter::toFloat(const std::string &litteral)
 
 	if (Helper::isdigitstring(litteral))
 		std::cout << "float: " << e << std::endl;
-	else
-	{
-		
-	}
 }
 
-// void	ScalarConverter::toDouble(const std::string &litteral)
-// {}
+void	ScalarConverter::toDouble(const std::string &litteral)
+{}

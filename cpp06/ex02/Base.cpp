@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:13 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/07 22:25:53 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:53:44 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ Base *	generate(void)
 void	identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
-		std::cout << "Type identified: A." << std::endl;
+		std::cout << "Type identified by pointer: A." << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "Type identified: B." << std::endl;
+		std::cout << "Type identified by pointer: B." << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "Type identified: C." << std::endl;
+		std::cout << "Type identified by pointer: C." << std::endl;
 	else
 		std::cout << "Cast failed." << std::endl;
 }
@@ -51,21 +51,20 @@ void	identify(Base& p)
 	try {
 		A& derivedA = dynamic_cast<A&>(p);
 		(void)derivedA;
-		std::cout << "Type identified with reference: A." << std::endl;
-		return ;
-	} catch (const std::exception&) {}
-	try {
-		B& derivedB = dynamic_cast<B&>(p);
-		(void)derivedB;
-		std::cout << "Type identified with reference: B." << std::endl;
-		return ;
-	} catch (const std::exception&) {}
-	try {
-		C& derivedC = dynamic_cast<C&>(p);
-		(void)derivedC;
-		std::cout << "Type identified with reference: C." << std::endl;
-		return ;
-		} catch (const std::exception&) {
-			std::cerr << "Cast failed." << std::endl;
+		std::cout << "Type identified by reference: A." << std::endl;
+	} catch (const std::bad_cast&) {
+		try {
+			B& derivedB = dynamic_cast<B&>(p);
+			(void)derivedB;
+			std::cout << "Type identified by reference: B." << std::endl;
+		} catch (const std::bad_cast&) {
+			try {
+				C& derivedC = dynamic_cast<C&>(p);
+				(void)derivedC;
+				std::cout << "Type identified by reference: C." << std::endl;
+			} catch (const std::bad_cast&) {
+				std::cerr << "Cast failed." << std::endl;
+			}
 		}
+	}
 }
