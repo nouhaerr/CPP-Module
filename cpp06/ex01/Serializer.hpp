@@ -23,9 +23,9 @@ class Serializer {
 	private:
 		Serializer();
 		Serializer(Serializer const &copy);
+		Serializer&	operator=(Serializer const &copy);
 
 	public:
-		Serializer&	operator=(Serializer const &copy);
 		~Serializer();
 
 		static uintptr_t	serialize(Data* ptr);

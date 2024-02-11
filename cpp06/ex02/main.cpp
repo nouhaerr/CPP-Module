@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:40:22 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/09 23:36:31 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/12 00:10:38 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	main(void)
 	Base*	base = generate();
 
 	identify(base);
-	identify(*base);
+	if (base)
+		identify(*base);
 
 	delete base;
 	return 0;
