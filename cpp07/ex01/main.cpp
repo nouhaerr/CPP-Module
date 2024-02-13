@@ -12,7 +12,18 @@
 
 #include "iter.hpp"
 
+template <typename T>
+void	printArr(T& a) {
+	std::cout << a << std::endl;
+}
+
 int main(void)
 {
+	int	arr[3] = {10, 9, 5};
+	::iter(arr, 3, printArr);
+
+	std::string	str[3] = {"", "", ""};
+	::iter(str, 3, printArr);
+
 	return 0;
 }
