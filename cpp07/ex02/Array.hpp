@@ -16,4 +16,16 @@
 # include <iostream>
 # include <string>
 
+template <typename T>
+class Array {
+	private:
+		size_t	_size;
+
+
+	public:
+
+
+	
+}
+
 #endif
