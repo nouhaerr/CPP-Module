@@ -16,7 +16,9 @@ CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
 CSRCS = main.cpp \
 		Base.cpp \
-
+		generate.cpp \
+		identify.cpp \
+		
 OBJ = $(CSRCS:.cpp=.o)
 
 NAME = base

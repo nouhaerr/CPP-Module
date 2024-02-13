@@ -15,7 +15,9 @@
 
 # include <iostream>
 # include <string>
+# include <typeinfo>
 # include <cstdlib>
+# include <stdexcept>
 
 class Base
 {
