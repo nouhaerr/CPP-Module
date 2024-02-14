@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 00:23:03 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/01 00:25:03 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:42:09 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	swap(T &a, T &b) {
 
 template <typename T>
 T	const &min(T const &a, T const &b) {
-	return a < b ? a : b;
+	return (a < b ? a : b);
 }
 
 template <typename T>
 T const	&max(T const &a, T const &b) {
-	return a > b ? a : b;
+	return (a > b ? a : b);
 }
 
 #endif
