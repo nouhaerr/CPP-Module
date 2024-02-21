@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 00:28:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/20 23:36:34 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/21 23:31:12 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include <cstdlib>
 
 template <typename T>
 class Array {

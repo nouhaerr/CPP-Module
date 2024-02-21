@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 00:30:14 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/20 23:43:18 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/21 23:50:35 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 #include "Array.hpp"
 
 template <typename T>
-Array<T>::Array(void) : _size(0) {
-	this->_arr = new T();
-}
+Array<T>::Array(void) : _size(0), _arr(new T[0]) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) { 
-	this->_arr = new T[n];
+Array<T>::Array(unsigned int n) {
+	this->_arr = new T[n]();
 	this->_size = static_cast<size_t>(n);
 }
 
@@ -70,13 +68,13 @@ size_t	Array<T>::size(void) const {
 
 template <typename T>
 std::ostream & operator<<( std::ostream & os, const Array<T> & array ) {
-    os << "[";
-    size_t size = array.size();
-    for( size_t position = 0; position < size; ++position ) {
-        os << array[position];
-        if (position < size-1) os << ", ";
-    }
-    return os << "]";
+	os << "[";
+	size_t size = array.size();
+	for( size_t pos= 0; pos < size; ++pos ) {
+		os << array[pos];
+		if (pos < size-1) os << ", ";
+	}
+	return os << "]";
 }
 
 #endif
