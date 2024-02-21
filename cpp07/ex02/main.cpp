@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 00:29:31 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/21 23:48:42 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/22 00:43:41 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int	main(void)
 	strArray[0] = "hello";
 	strArray[1] = "middle";
 	strArray[2] = "east";
-	std::cout << strArray << std::endl;
+	std::cout << "- First array "<< strArray << std::endl;
 
 	Array<std::string> copy(3);
 	copy[0] = "From";
 	copy[1] = "other";
 	copy[2] = "side";
-	std::cout << copy << std::endl;
+	std::cout << "- Second array " << copy << std::endl;
 	strArray = copy;
-	std::cout << "After assigning: " << strArray << std::endl;
+	std::cout << "After assigning second array to the first one: " << strArray << std::endl;
 
 	// An array of integers
 	Array<int> intArray(5);
@@ -41,7 +41,7 @@ int	main(void)
 	}
 	std::cout << intArray << std::endl;
 
-	Array<int> emptyArr;
+	const Array<int> emptyArr;
 	std::cout << "Size of empty array " << emptyArr << " is: "<< emptyArr.size() << std::endl;
 
 	Array<int> numbers(MAX_VAL);
@@ -55,9 +55,9 @@ int	main(void)
 	//SCOPE
 	{
 		Array<int> tmp = numbers;
-		std::cout << "Copy assignement operator: tmp, Size " << tmp.size() << "\n" ;
-		Array<int> test(tmp);
-		std::cout << "Copy constructor: test, Size " << test.size() << "\n" ;
+		std::cout << "Copy assignement operator called for tmp, Size: " << tmp.size() << "\n" ;
+		const Array<int> test(tmp);
+		std::cout << "Copy constructor caled for test, Size: " << test.size() << "\n" ;
 	}
 
 	for (int i = 0; i < MAX_VAL; i++) {
