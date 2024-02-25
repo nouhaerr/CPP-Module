@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 00:28:38 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/22 00:38:08 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/25 17:58:11 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ class Array {
 		Array(const Array<T> &copy);
 		Array<T>&	operator=(const Array<T> &copy);
 		~Array();
-	
-		T&	operator[](size_t pos) const;
-		size_t	size(void) const;
+
+		const T&	operator[](unsigned int pos) const;
+		T&			operator[](unsigned int pos);
+		size_t		size(void) const;
 
 		class OutOfBoundsException : public std::exception {
 			public :
-				const char* what() const throw(); 
+				const char* what() const throw();
 		};
 };
 

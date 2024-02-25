@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 00:29:31 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/22 00:43:41 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/25 17:47:07 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	strArray = copy;
 	std::cout << "After assigning second array to the first one: " << strArray << std::endl;
 
-	// An array of integers
+	//An array of integers
 	Array<int> intArray(5);
 	size_t position = 0;
 	try {
