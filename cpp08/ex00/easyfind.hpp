@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:22:45 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/26 13:52:04 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:31:45 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <iterator>
 # include <algorithm>
 
-class OccurenceNotFound : public std::exception {
+class OccurenceNotFoundException : public std::exception {
 	public:
 		const char* what() const throw() {
 			return "Aucune occurence n'a été trouvée!";
@@ -37,7 +37,7 @@ typename T::iterator	easyfind(T &container, int n) {
 	if (it != container.end())
 		return it;
 	else
-		throw OccurenceNotFound();
+		throw OccurenceNotFoundException();
 }
 
 #endif
