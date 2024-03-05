@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:37:30 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/02/26 19:08:23 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/05 02:07:26 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,13 @@ int	Span::longestSpan(void)const {
 	if (this->vectNbr.size() < 2)
 		throw Span::CannotCalculateDistanceException();
 	std::vector<int> v = this->vectNbr;
-	std::sort(v.begin(), v.end());
-	int max_diff = v[v.size() - 1] - v[0];
+	int	*i1 = new int;
+	int *i2 = new int;
+	*i1 = *std::min_element(v.begin(), v.end());
+	*i2 = *std::max_element(v.begin(), v.end());
+	int max_diff = abs(*i2 - *i1);
+	delete i1;
+	delete i2;
 	return max_diff;
 }
 
