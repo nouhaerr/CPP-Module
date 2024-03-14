@@ -22,6 +22,7 @@
 # include <algorithm>
 # include <limits.h>
 # include <cstdlib>
+# include <time.h>
 
 class Span {
 

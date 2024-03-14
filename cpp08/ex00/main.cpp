@@ -14,8 +14,11 @@
 
 int	main(void) {
 	try {
-		int arr[] = { 97, 85, 64, 37};
-		std::vector<int> t(arr, arr + sizeof(arr) / sizeof(arr[0]));
+		std::vector<int> t(4);
+		t.push_back(97);
+		t.push_back(85);
+		t.push_back(64);
+		t.push_back(37);
 		std::cout << *easyfind<std::vector<int> >(t, 64) << std::endl;
 
 		std::list<int> li;
@@ -31,4 +34,6 @@ int	main(void) {
 	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
+
+	return 0;
 }

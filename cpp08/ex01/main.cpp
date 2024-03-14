@@ -46,7 +46,7 @@ int	main(void) {
 	std::cout << std::string(55, '-') << std::endl;
 
 	try {
-		std::srand(static_cast<unsigned int>(std::time(NULL)));
+		std::srand(static_cast<unsigned int>(time(NULL)));
 		std::vector<int> v;
 		for(int i = 0; i < 4; i++) {
 			int random = (std::rand() % 500) + 1;

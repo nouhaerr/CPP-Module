@@ -16,7 +16,7 @@ Span::Span(){}
 
 Span::Span(unsigned int n) {
 	if (n > INT_MAX)
-		throw std::out_of_range("Nbr out of range: you shouldn't exceed the max value of unsigned int!!");
+		throw std::out_of_range("Nbr out of range");
 	this->_n = n;
 	vectNbr.reserve(_n);
 }
@@ -76,22 +76,16 @@ int	Span::longestSpan(void)const {
 	if (this->vectNbr.size() < 2)
 		throw Span::CannotCalculateDistanceException();
 	std::vector<int> v = this->vectNbr;
-	int	*i1 = new int;
-	int *i2 = new int;
-	*i1 = *std::min_element(v.begin(), v.end());
-	*i2 = *std::max_element(v.begin(), v.end());
-	int max_diff = abs(*i2 - *i1);
-	delete i1;
-	delete i2;
-	return max_diff;
+	int	i1 = *std::min_element(v.begin(), v.end());
+	int i2 = *std::max_element(v.begin(), v.end());
+	return abs(i2 - i1);
 }
 
+void	print(int it) {
+	std::cout << it << " ";
+}
 void	Span::printVec(void)const {
-	std::vector<int> v = this->vectNbr;
-	std::vector<int>::iterator	it;
-
 	std::cout << "Span=> ";
-	for(it = v.begin(); it < v.end(); it++)
-		std::cout << *it << " ";
+	std::for_each(vectNbr.begin(),  vectNbr.end(), print);
 	std::cout << std::endl;
 }
