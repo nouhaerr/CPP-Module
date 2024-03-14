@@ -14,7 +14,8 @@
 
 int	main(void) {
 	try {
-		std::vector<int> t(4);
+		std::vector<int> t;
+		t.reserve(4);
 		t.push_back(97);
 		t.push_back(85);
 		t.push_back(64);

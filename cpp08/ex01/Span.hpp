@@ -28,7 +28,7 @@ class Span {
 
 	private:
 		unsigned int	_n;
-		std::vector<int> vectNbr;
+		std::vector<int> _vectNbr;
 
 	public:
 		Span();
@@ -41,7 +41,7 @@ class Span {
 		void	addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
 		int		shortestSpan(void)const;
 		int		longestSpan(void)const;
-		void	printVec(void)const;
+		void	displaySpan(void)const;
 
 		class FullSpanException : public std::exception {
 			public:

@@ -18,7 +18,7 @@ int	main(void) {
 		Span sp(1);
 
 		sp.addNumber(77);
-		sp.printVec();
+		sp.displaySpan();
 		std::cout << sp.shortestSpan() << std::endl;
 	} catch(const std::exception& e) {
 		std::cerr << e.what() <<std::endl;
@@ -34,7 +34,7 @@ int	main(void) {
 		span.addNumber(65);
 		span.addNumber(-5);
 		span.addNumber(-12);
-		span.printVec();
+		span.displaySpan();
 
 		std::cout << "Shortest distance: " << span.shortestSpan() << std::endl;
 		std::cout << "longest distance: " << span.longestSpan() << std::endl;
@@ -59,7 +59,7 @@ int	main(void) {
 		Span sp1(4);
 
 		sp1.addNumber(v.begin(), v.end());
-		sp1.printVec();
+		sp1.displaySpan();
 
 		std::cout << "Shortest distance: " << sp1.shortestSpan() << std::endl;
 		std::cout << "longest distance: " << sp1.longestSpan() << std::endl;

@@ -12,13 +12,13 @@
 
 #include "Span.hpp"
 
-Span::Span(){}
+Span::Span() : _n(0), _vectNbr(0){}
 
 Span::Span(unsigned int n) {
 	if (n > INT_MAX)
 		throw std::out_of_range("Nbr out of range");
 	this->_n = n;
-	vectNbr.reserve(_n);
+	_vectNbr.reserve(_n);
 }
 
 Span::Span(Span const &copy) {
@@ -28,7 +28,7 @@ Span::Span(Span const &copy) {
 Span&	Span::operator=(Span const &copy) {
 	if (this != &copy) {
 		this->_n = copy._n;
-		this->vectNbr = copy.vectNbr;
+		this->_vectNbr = copy._vectNbr;
 	}
 	return *this;
 }
@@ -44,8 +44,8 @@ const char* Span::CannotCalculateDistanceException::what() const throw() {
 }
 
 void	Span::addNumber(unsigned int number) {
-	if (this->vectNbr.size() < this->_n)
-		this->vectNbr.push_back(number);
+	if (this->_vectNbr.size() < this->_n)
+		this->_vectNbr.push_back(number);
 	else
 		throw Span::FullSpanException();
 }
@@ -56,9 +56,9 @@ void	Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterato
 }
 
 int	Span::shortestSpan(void)const {
-	if (this->vectNbr.size() < 2)
+	if (this->_vectNbr.size() < 2)
 		throw Span::CannotCalculateDistanceException();
-	std::vector<int> v = this->vectNbr;
+	std::vector<int> v = this->_vectNbr;
 	std::sort(v.begin(), v.end());
 
 	int min_diff = v[1] - v[0];
@@ -73,19 +73,20 @@ int	Span::shortestSpan(void)const {
 }
 
 int	Span::longestSpan(void)const {
-	if (this->vectNbr.size() < 2)
+	if (this->_vectNbr.size() < 2)
 		throw Span::CannotCalculateDistanceException();
-	std::vector<int> v = this->vectNbr;
+	std::vector<int> v = this->_vectNbr;
 	int	i1 = *std::min_element(v.begin(), v.end());
 	int i2 = *std::max_element(v.begin(), v.end());
-	return abs(i2 - i1);
+	return (abs(i2 - i1));
 }
 
-void	print(int it) {
-	std::cout << it << " ";
+static void	print(const int &it){
+	std::cout << it << " "; //it represent each element of the vector 
 }
-void	Span::printVec(void)const {
+
+void	Span::displaySpan(void)const {
 	std::cout << "Span=> ";
-	std::for_each(vectNbr.begin(),  vectNbr.end(), print);
+	std::for_each(_vectNbr.begin(),  _vectNbr.end(), print);
 	std::cout << std::endl;
 }
