@@ -25,6 +25,7 @@ class MutantStack : public std::stack<T, Container > {
 	public:
 		typedef typename Container::iterator iterator;
 		typedef typename Container::reverse_iterator reverse_iterator;
+
 		MutantStack(void) {};
 		MutantStack(MutantStack const &copy) : std::stack<T, Container>(copy) {};
 		MutantStack&	operator=(MutantStack const &copy) {

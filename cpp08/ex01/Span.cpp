@@ -50,7 +50,7 @@ void	Span::addNumber(unsigned int number) {
 		throw Span::FullSpanException();
 }
 
-void	Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+void	Span::addRange(std::vector<int>::iterator first, std::vector<int>::iterator last) {
 	for( ; first != last; first++)
 		this->addNumber(*first);
 }
