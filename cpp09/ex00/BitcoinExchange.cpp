@@ -17,7 +17,7 @@ BitcoinExchange::BitcoinExchange(std::string filename) {
 			std::string	key = line.substr(0, delimiter);
 			double	value = strtod(line.substr(delimiter+ 1).c_str(), NULL);
 				// insert data into map
-			this->_data[key] = value;
+			this->_dataMap[key] = value;
 		}
 	}
 	ifile.close();
@@ -29,13 +29,13 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) {
 
 BitcoinExchange&    BitcoinExchange::operator=(BitcoinExchange const &copy) {
 	if (this != &copy) {
-		this->_data = copy._data;
+		this->_dataMap = copy._dataMap;
 	}
 	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange() {
-	this->_data.clear();
+	this->_dataMap.clear();
 }
 
 void	BitcoinExchange::execute(const char* inputfile) {
@@ -49,18 +49,34 @@ void	BitcoinExchange::execute(const char* inputfile) {
 	{
 		std::getline(f, line);
 		if (line != "date | value")
-			throw std::runtime_error("Error: wrong input.");
+			throw std::runtime_error("Error: wrong format.");
 		while (std::getline(f, line))
 		{
 			try {
 				std::pair<std::string, double> pair = parseInput(line);
-				
-				// showResult();
+				double ex = getExchange(pair.first);
+				if (ex < 0)
+					throw std::runtime_error("Error: wrong input.");
+				else
+					std::cout << pair.first << " => " << pair.second << " = "
+							<< (pair.second * ex) << std::endl;
 			} catch(const std::exception &e) {
 				std::cerr << e.what() << std::endl;
 			}
 		}
+		f.close();
 	}
+}
+
+double	BitcoinExchange::getExchange(const std::string& date) {
+	std::map<std::string, double>::iterator	it = this->_dataMap.lower_bound(date);
+
+	if (it != this->_dataMap.end() && it->first == date)
+		return it->second;
+	if (it == this->_dataMap.begin())
+		return -1;
+	--it;
+	return it->second;
 }
 
 static bool	isNumeric(const std::string str, const std::string &seq) {
@@ -69,7 +85,10 @@ static bool	isNumeric(const std::string str, const std::string &seq) {
 
 static void	isValidValue(double &val, const std::string &valueStr) {
 	if (valueStr[0] == '.' || valueStr[valueStr.length() - 1] == '.')
-		throw std::runtime_error("Error: bad format.");
+		throw std::runtime_error("Error: invalid format.");
+	else if (std::count(valueStr.begin(), valueStr.end(), '.') > 1)
+		throw std::runtime_error("Error: invalid number.");
+
 	if (val < 0)
 		throw std::runtime_error("Error: not a positive number.");
 	else if (val > 1000)
@@ -101,7 +120,7 @@ static void	isValidDate(const std::string &date) {
 	int y;
 	std::istringstream(year) >> y;
 	if (y < 2009 || y > 2022)
-		throw std::runtime_error("Error: invalid date.");
+		throw std::runtime_error("Error: invalid date (check the year).");
 
 	int	d;
 	std::istringstream(day) >> d;
@@ -137,18 +156,8 @@ std::pair<std::string, double>	BitcoinExchange::parseInput(std::string line) {
 		throw std::runtime_error("Error: not an int or float value");
 
 	std::string key = line.substr(0, delimiter - 1);
-	double value = strtod(valueStr.c_str(), &p);
+	double value = strtod(valueStr.c_str(), &p); // verifie the p
 	isValidDate(key);
 	isValidValue(value, valueStr);
 	return std::make_pair(key, value);
 }
-
-
-// std::string	BitcoinExchange::trim(const std::string& str) {
-// 	size_t first = str.find_first_not_of(' ');
-// 	if (std::string::npos == first)
-// 		return str;
-
-// 	size_t last = str.find_last_not_of(' ');
-//     return str.substr(first, (last - first + 1));
-// }

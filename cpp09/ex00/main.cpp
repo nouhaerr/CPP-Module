@@ -3,7 +3,7 @@
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-		std::cerr << "Error: could not open file." << std::endl;
+		return (std::cerr << "Error: could not open file.\n", 1);
 	try{
 		BitcoinExchange	btc("data.csv");
 
@@ -11,4 +11,6 @@ int	main(int ac, char **av)
 	} catch(const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
+	return 0;
 }
+
