@@ -82,7 +82,7 @@ int	Span::longestSpan(void)const {
 }
 
 static void	print(const int &it){
-	std::cout << it << " "; //it represent each element of the vector 
+	std::cout << it << " "; 
 }
 
 void	Span::displaySpan(void)const {

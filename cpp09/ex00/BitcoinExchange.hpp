@@ -4,10 +4,13 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <sstream>
 # include <stdexcept>
 # include <map>
+# include <list>
 # include <algorithm>
 # include <cstdlib>
+# include <iterator>
 
 
 class BitcoinExchange {
