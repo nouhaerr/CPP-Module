@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:11:21 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/05 05:10:52 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/18 02:27:56 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <algorithm>
 # include <vector>
 # include <stack>
+# include <list>
+# include <cassert>
 
 template <class T, class Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container > {

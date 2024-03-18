@@ -147,7 +147,7 @@ std::pair<std::string, double>	BitcoinExchange::parseInput(std::string line) {
 
 	if (line[0] == '|' || line[line.length() - 1] == '|' || delimiter == std::string::npos) //a revoir
 		throw std::runtime_error("Error: bad input => " + line);
-	else if (line[delimiter - 1] != ' ')
+	else if (line[delimiter - 1] != ' ' || line[delimiter + 1] != ' ')
 		throw std::runtime_error("Error: bad format");
 
 	std::string	valueStr = line.substr(delimiter + 2);

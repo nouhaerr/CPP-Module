@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:37:30 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/05 04:28:53 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/18 00:56:59 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 Span::Span() : _n(0), _vectNbr(0){}
 
 Span::Span(unsigned int n) {
-	if (n > INT_MAX)
-		throw std::out_of_range("Nbr out of range");
 	this->_n = n;
 	_vectNbr.reserve(_n);
 }
