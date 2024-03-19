@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:59:00 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/18 01:20:19 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/19 02:54:01 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(void) {
 			std::cout << *i << " ";
 		
 		std::cout << std::endl;
-		Span sp1(6);
+		Span sp1(7);
 
 		sp1.addRange(v.begin(), v.end());
 		sp1.displaySpan();

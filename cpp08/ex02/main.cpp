@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 05:07:25 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/18 02:47:17 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/19 02:42:29 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int main()
 	std::stack<int> s(mstack);
 
 	std::cout << "______________list_test_____________\n";
-	std::list<int> li;
+	std::list<int>	li;
 	li.push_back(5); 
 	li.push_back(17) ;
 	std::cout << li.back() << std::endl;
