@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:15 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/20 06:28:53 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/20 07:07:51 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ class RPN
 	private:
 		std::stack<int>	_rpn;
 		typedef void	(RPN::*operationFunct)(void);
+		void	checkOperator(char *exp);
+		void	addition(void);
+		void	difference(void);
+		void	multiplication(void);
+		void	division(void);
+
 	public:
 		RPN();
 		RPN(const RPN &other);
@@ -37,11 +43,7 @@ class RPN
 		~RPN();
 
 		void	checkExpression(char *exp);
-		void	checkNumbers(char *exp);
-		void	checkOperator(char *exp);
-		void	calculate(char exp);
-		void	addition();
-		void	difference();
+		void	showResult(void)const;
 };
 
 #endif

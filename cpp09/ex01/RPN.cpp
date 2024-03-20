@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:32 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/20 06:38:44 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/20 07:16:54 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ RPN&	RPN::operator=(RPN const &other) {
 	return *this;
 }
 
-RPN::~RPN() {}
+RPN::~RPN() {
+	if (!this->_rpn.empty())
+		this->_rpn.pop();
+}
 
-void	RPN::addition() {
+void	RPN::addition(void) {
 	int	operand1 = this->_rpn.top();
 	this->_rpn.pop();
 
@@ -38,7 +41,7 @@ void	RPN::addition() {
 	this->_rpn.push(sum);
 }
 
-void	RPN::difference() {
+void	RPN::difference(void) {
 	int	a = this->_rpn.top();
 	this->_rpn.pop();
 
@@ -48,33 +51,35 @@ void	RPN::difference() {
 	this->_rpn.push(diff);
 }
 
-// static	size_t	countDigit(std::string &e) {
-// 	size_t i = 0, nb = 0;
+void	RPN::multiplication(void) {
+	int	a = this->_rpn.top();
+	this->_rpn.pop();
 
-// 	while (i < e.length()) {
-// 		if (isdigit(e[i]))
-// 			nb++;
-// 		i++;
-// 	}
-// 	return nb;
-// }
+	int	multiple = this->_rpn.top() * a;
 
-// static size_t	count(std::string &e) {
-// 	size_t i = 0, op = 0;
+	this->_rpn.pop();
+	this->_rpn.push(multiple);
+}
 
-// 	while (i < e.length()) {
-// 		if (e[i] == '+' || e[i] == '-' || e[i] == '*' || e[i] == '/')
-// 			op +=1;
-// 		i++;
-// 	}
-// 	return op;
-// }
+void	RPN::division(void) {
+	int	a = this->_rpn.top();
+	if (a == 0)
+		throw std::runtime_error("Error: Division by zero.");
+	this->_rpn.pop();
+
+	int	div = this->_rpn.top() / a;
+
+	this->_rpn.pop();
+	this->_rpn.push(div);
+}
 
 void	RPN::checkOperator(char *exp) {
 	size_t	i = 0;
 	operationFunct fct[4] = {
 		&RPN::addition,
-		&RPN::difference
+		&RPN::difference,
+		&RPN::multiplication,
+		&RPN::division
 	};
 	const char *op = "+-*/";
 
@@ -87,19 +92,20 @@ void	RPN::checkOperator(char *exp) {
 			}
 		}
 		i++;
-		
 	}
-	// throw std::runtime_error("Error: Wrong RPN expression.");
 }
 
-// static bool	isNumeric(const std::string str, const std::string &seq) {
-// 	return str.find_first_not_of(seq) == std::string::npos;
-// }
+void	RPN::showResult(void)const {
+	if (this->_rpn.size() != 1)
+		throw std::runtime_error("Error");
+	std::cout << this->_rpn.top() << std::endl;
+}
+
 static bool isOperator(char c) {
     return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
-void	RPN::checkNumbers(char *exp) {
+void	RPN::checkExpression(char *exp) {
 	size_t	i = 0, j;
 
 	while (exp[i]) {
@@ -108,45 +114,12 @@ void	RPN::checkNumbers(char *exp) {
 			throw std::runtime_error("Error: Invalid character detected in expression.");
 		else if (!(isspace(exp[i]) || isdigit(exp[i])))
 			checkOperator(exp + i);
-		else if (isdigit(exp[i]))
+		else if (isdigit(exp[i])){
+			if(exp[i+1] && isdigit(exp[i+1]))
+				throw std::runtime_error("Error: we must have digits not numbers.");
 			this->_rpn.push(exp[i] - 48);
-		// while (exp[j] && exp[j + 1] == ' ')
-		// 	j++;
-		// i += j + 1;
+		}
 		i++;
 	}
-	if (this->_rpn.size() != 1)
-		throw std::runtime_error("Error: More than one digit in the stack.");
-	std::cout << this->_rpn.top() << std::endl;
 }
-	// std::istringstream	iss(exp);
-	// std::string e(exp);
-	// std::stack<std::string>	st;
-	// std::string	tok;
-
-	// if (e.empty() || e.length() <= 4 || (!(isdigit(exp[0]) && isdigit(exp[2])  && !isdigit(exp[4]))))
-	// 	throw std::runtime_error("Error: we must have at least: one operator and two digits.");
-	// else if (!isNumeric(e, " 0123456789+-*/"))
-	// 	throw std::runtime_error("Error: we must have digits or operators.");
-	// else if (count(e) + 1 != countDigit(e))
-	// 	throw std::runtime_error("Error: we must have operators-1 compared to digits.");
-
-	// while (std::getline(iss, tok, ' ')) {
-	// 	if (tok.length() != 1 )
-	// 		throw std::runtime_error("Error: we must have numbers less than 10 (digits) or operators.");
-	// 	else if (isdigit(tok[0])) {
-	// 		this->_rpn.push(stoi(tok));
-	// 	}
-	// 	else if (tok == "-" || tok == "+" || tok == "*" || tok == "/")
-	// 	{
-	// 		printf("ok\n");
-	// 		st.push(tok);
-	// 		// if (this->_rpn.size() == 2) {
-	// 		// 	printf("calcu \n");
-	// 		// 	calculate(st);
-	// 		// }
-	// 	}
-	// 	// else
-	// 	// 	throw std::runtime_error("Error: we must have digits or operators.");
-	// }
 
