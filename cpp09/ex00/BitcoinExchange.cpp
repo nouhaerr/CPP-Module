@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/19 21:43:19 by nerrakeb          #+#    #+#             */
+/*   Updated: 2024/03/19 21:43:20 by nerrakeb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {}
@@ -16,7 +28,6 @@ BitcoinExchange::BitcoinExchange(std::string filename) {
 			int	delimiter = line.find(',', 0);
 			std::string	key = line.substr(0, delimiter);
 			double	value = strtod(line.substr(delimiter+ 1).c_str(), NULL);
-				// insert data into map
 			this->_dataMap[key] = value;
 		}
 	}
