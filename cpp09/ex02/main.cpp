@@ -5,25 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 21:43:14 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 05:20:38 by nerrakeb         ###   ########.fr       */
+/*   Created: 2024/03/21 04:42:50 by nerrakeb          #+#    #+#             */
+/*   Updated: 2024/03/21 08:25:41 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-		return (std::cerr << "Error: Wrong RPN expression!\n",1);
-
+int	main(int ac, char **av) {
 	try {
-		RPN	rpn;
-		rpn.checkExpression(av[1]);
-		rpn.showResult();
+		if (ac == 1)
+			throw std::runtime_error("Error: where is the arguments");
+		PmergeMe	p;
+		p.checkArgs(ac, av);
+		p.pairwiseNbrs();
 	} catch(const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
-	return 0;
 }
+

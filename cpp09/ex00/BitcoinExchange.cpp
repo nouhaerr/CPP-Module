@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/19 21:43:20 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/21 03:28:17 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ BitcoinExchange&    BitcoinExchange::operator=(BitcoinExchange const &copy) {
 }
 
 BitcoinExchange::~BitcoinExchange() {
-	this->_dataMap.clear();
+	if (!this->_dataMap.empty())
+		this->_dataMap.clear();
 }
 
 void	BitcoinExchange::execute(const char* inputfile) {
@@ -59,8 +60,8 @@ void	BitcoinExchange::execute(const char* inputfile) {
 	else
 	{
 		std::getline(f, line);
-		if (line != "date | value")
-			throw std::runtime_error("Error: wrong format.");
+		if (line.compare("date | value"))
+			throw std::runtime_error("Error: wrong header format.");
 		while (std::getline(f, line))
 		{
 			try {
