@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:43:17 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 08:25:35 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/21 09:52:56 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 class PmergeMe {
     private:
         std::vector<int>	v;
-        std::vector<std::pair<int, int> >	vp; 
+        std::vector<std::pair<int, int> >	vp;
+        std::vector<int>	_sortedVec;
+		void	mergeSort(std::vector<std::pair<int, int> >& vec, size_t left, size_t right);
 
     public:
         PmergeMe(void);
@@ -33,6 +35,8 @@ class PmergeMe {
 
         void	checkArgs(int ac, char **av);
         void    pairwiseNbrs();
+		void	sortNbrs();
+		void	displaySortedNbrs()const;
 };
 
 #endif
