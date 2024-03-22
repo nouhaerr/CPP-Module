@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:43:21 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 10:52:02 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 11:02:43 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,15 @@ void	PmergeMe::_displaySortedNbrs(const std::string &msg) {
 
 void	PmergeMe::mergeSortInsertion(){
 	_displaySortedNbrs("BEFORE");
-	clock_t	vecStart = clock();
+	std::clock_t	vecStart = std::clock();
 	_pairwiseVecNbrs();
 	_sortVecNbrs();
-	clock_t	vecEnd = clock();
+	std::clock_t	vecEnd = std::clock();
 
-	clock_t	deckStart = clock();
+	std::clock_t	deckStart = std::clock();
 	_pairwiseDeckNbrs();
 	_sortDeckNbrs();
-	clock_t	deckEnd = clock();
+	std::clock_t	deckEnd = std::clock();
 	_displaySortedNbrs("AFTER");
 	double	vecDuration = ((double) (vecEnd - vecStart) / CLOCKS_PER_SEC) * 1000000;
 	double	deckDuration = ((double) (deckEnd - deckStart) / CLOCKS_PER_SEC) * 1000000;
