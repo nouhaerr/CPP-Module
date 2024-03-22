@@ -6,13 +6,14 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:42:50 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 09:52:25 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 06:43:02 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int	main(int ac, char **av) {
+	
 	try {
 		if (ac == 1)
 			throw std::runtime_error("Error: where is the arguments");

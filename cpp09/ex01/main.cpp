@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:14 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 05:20:38 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 05:36:26 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 	try {
 		RPN	rpn;
 		rpn.checkExpression(av[1]);
+		rpn.execExpression(av[1]);
 		rpn.showResult();
 	} catch(const std::exception &e) {
 		std::cerr << e.what() << std::endl;

@@ -6,13 +6,13 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:43:21 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 10:01:30 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 03:33:30 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(void) {}
+PmergeMe::PmergeMe(void) : odd(false) {}
 
 PmergeMe::PmergeMe(PmergeMe const &other) {
 	*this = other;
@@ -41,86 +41,103 @@ void	PmergeMe::checkArgs(int ac, char **av) {
 
 	while (i < ac) {
 		if (!isNumeric(av[i], "0123456789"))
-			throw std::runtime_error("Error: we must have just numbers and must be positive.");
+			throw std::runtime_error("Error");
 		this->v.push_back(atoi(av[i]));
+		this->_deck.push_back(atoi(av[i]));
 		i++;
 	}
 	std::cout << "Before: ";
-	for (size_t j = 0; j < this->v.size(); j++)
-	{
-		if (j == 4 && this->v.size() > 5) {
-			std::cout << " [...]";
-			break;
-		}
-		std::cout << " " << this->v[j];
+	for (size_t j = 0; j < this->_deck.size(); j++) {
+		// if (j == 4 && this->_deck.size() > 5) {
+		// 	std::cout << " [...]";
+		// 	break;
+		// }
+		std::cout << " " << this->_deck[j];
 	}
-	std::cout << std::endl;
 }
 
 void	PmergeMe::pairwiseNbrs() {
 	size_t	i = 0;
 
-	if (this->v.size() % 2 != 0)
-		v.push_back(-1);
-	while (i < this->v.size())
-	{
-		if (this->v[i] > this->v[i + 1])
-			this->vp.push_back(std::pair<int, int>(this->v[i], this->v[i + 1]));
-		else
-			this->vp.push_back(std::pair<int, int>(this->v[i + 1], this->v[i]));
-		i += 2;
+	if (this->v.size() % 2 != 0) {
+		this->stragglerVec = this->v.back();
+		this->v.pop_back();
+		this->stragglerDeck = this->_deck.back();
+		this->_deck.pop_back();
+		this->odd = true;
 	}
-	for (size_t i = 0; i < vp.size(); ++i) { //output the pair vector
-		std::cout << "Pair Before" << ": (" << vp[i].first << ", " << vp[i].second << ")\n";
+	while (i < this->v.size()) {
+		if (this->v[i] > this->v[i + 1]) {
+			this->vp.push_back(std::make_pair(this->v[i], this->v[i + 1]));
+			this->_deckPairs.push_back(std::make_pair(this->v[i], this->v[i + 1]));
+		}
+		else {
+			this->vp.push_back(std::make_pair(this->v[i + 1], this->v[i]));
+			this->_deckPairs.push_back(std::make_pair(this->v[i + 1], this->v[i]));
+		}
+		i += 2;
 	}
 }
 
 void	PmergeMe::sortNbrs() {
-	size_t size = this->vp.size(), i = 0;
+	size_t size = this->vp.size(), i = -1;
 
 	mergeSort(this->vp, 0, size - 1);
-	for (size_t i = 0; i < vp.size(); ++i) { //output the pair vector
-        std::cout << "Pair After" << ": (" << vp[i].first << ", " << vp[i].second << ")\n";
-    }
-	while (i < size) {
-		this->_sortedVec.push_back(vp[i].first);
-		i++;
+	mergeSort(this->_deckPairs, 0, size - 1);
+	while (++i < size) {
+		this->_sortedVec.push_back(this->vp[i].first);
+		this->_sortedDeck.push_back(this->_deckPairs[i].first);
 	}
-	std::cout << "After: ";
-	for (size_t i = 0; i < _sortedVec.size(); ++i) { //output the pair vector
-		std::cout << " " << _sortedVec[i];
+	_insertVectSecondPairs();
+	_insertDeckSecondPairs();
+}
+
+void	PmergeMe::_insertVectSecondPairs() {
+	for (size_t i = 0; i < this->vp.size(); i++) {
+			std::vector<int>::iterator	it = std::lower_bound(this->_sortedVec.begin(),\
+			this->_sortedVec.end(), this->vp[i].second);
+			this->_sortedVec.insert(it, this->vp[i].second);
 	}
-	std::cout << std::endl;
+	if (this->odd) {
+			std::vector<int>::iterator	it = std::lower_bound(this->_sortedVec.begin(),\
+			this->_sortedVec.end(), this->stragglerVec);
+			this->_sortedVec.insert(it, this->stragglerVec);
+	}
+		
+}
+
+void	PmergeMe::_insertDeckSecondPairs() {
+	for (size_t i = 0; i < this->_deckPairs.size(); i++) {
+		std::deque<int>::iterator	it = std::lower_bound(this->_sortedDeck.begin(),\
+		this->_sortedDeck.end(), this->_deckPairs[i].second);
+		this->_sortedDeck.insert(it, this->_deckPairs[i].second);
+	}
+	if (this->odd) {
+		std::deque<int>::iterator	it = std::lower_bound(this->_sortedDeck.begin(),\
+		this->_sortedDeck.end(), this->stragglerDeck);
+		this->_sortedDeck.insert(it, this->stragglerDeck);
+	}
 }
 
 static void	merge(std::vector<std::pair<int, int> >& vec, size_t left, size_t mid, size_t right) {
 	size_t n1 = mid - left + 1;
     size_t n2 = right - mid;
 
-    // Create temporary vectors to store the left and right halves
     std::vector<std::pair<int, int> > leftHalf(vec.begin() + left, vec.begin() + mid + 1);
     std::vector<std::pair<int, int> > rightHalf(vec.begin() + mid + 1, vec.begin() + right + 1);
 
     size_t i = 0, j = 0, k = left;
 
-    // Merge the left and right halves back into the original vector
     while (i < n1 && j < n2) {
-        if (leftHalf[i].first <= rightHalf[j].first) {
+        if (leftHalf[i].first <= rightHalf[j].first)
             vec[k++] = leftHalf[i++];
-        } else {
+		else
             vec[k++] = rightHalf[j++];
-        }
     }
-
-    // Copy the remaining elements of leftHalf[], if any
-    while (i < n1) {
+    while (i < n1)
         vec[k++] = leftHalf[i++];
-    }
-
-    // Copy the remaining elements of rightHalf[], if any
-    while (j < n2) {
+    while (j < n2)
         vec[k++] = rightHalf[j++];
-    }
 }
 
 void	PmergeMe::mergeSort(std::vector<std::pair<int, int> >& vec, size_t left, size_t right) {
@@ -134,16 +151,63 @@ void	PmergeMe::mergeSort(std::vector<std::pair<int, int> >& vec, size_t left, si
 	}
 }
 
+static void	merge(std::deque<std::pair<int, int> >& deq, size_t left, size_t mid, size_t right) {
+	size_t n1 = mid - left + 1;
+    size_t n2 = right - mid;
+
+    // Create temporary vectors to store the left and right halves
+    std::deque<std::pair<int, int> > leftHalf(deq.begin() + left, deq.begin() + mid + 1);
+    std::deque<std::pair<int, int> > rightHalf(deq.begin() + mid + 1, deq.begin() + right + 1);
+
+    size_t i = 0, j = 0, k = left;
+
+    // Merge the left and right halves back into the original vector
+    while (i < n1 && j < n2) {
+        if (leftHalf[i].first <= rightHalf[j].first)
+			deq[k++] = leftHalf[i++];
+		else
+            deq[k++] = rightHalf[j++];
+    }
+
+    // Copy the remaining elements of leftHalf[], if any
+    while (i < n1)
+        deq[k++] = leftHalf[i++];
+
+    // Copy the remaining elements of rightHalf[], if any
+    while (j < n2)
+        deq[k++] = rightHalf[j++];
+}
+
+void	PmergeMe::mergeSort(std::deque<std::pair<int, int> >& deq, size_t left, size_t right) {
+	if (left < right) {
+		size_t	mid = left + (right - left) / 2;
+
+		mergeSort(deq, left, mid);
+		mergeSort(deq, mid + 1, right);
+
+		merge(deq, left, mid, right);
+	}
+}
+
 void	PmergeMe::displaySortedNbrs()const {
-	// std::cout << "After:  ";
-	// for (size_t j = 0; j < this->vp.size(); j++)
-	// {
+	// std::cout << "Before: ";
+	// for (size_t j = 0; j < this->v.size(); j++) {
 	// 	if (j == 4 && this->v.size() > 5) {
 	// 		std::cout << " [...]";
 	// 		break;
 	// 	}
 	// 	std::cout << " " << this->v[j];
 	// }
-	// std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "After:  ";
+	for (size_t j = 0; j < this->_sortedDeck.size(); j++)
+	{
+		// if (j == 4 && this->_sortedDeck.size() > 5) {
+		// 	std::cout << " [...]";
+		// 	break;
+		// }
+		std::cout << " " << this->_sortedDeck[j];
+	}
+	std::cout << std::endl;
 }
 

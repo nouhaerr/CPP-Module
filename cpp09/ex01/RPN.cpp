@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:32 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 05:20:16 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 05:49:46 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	RPN::multiplication(void) {
 void	RPN::division(void) {
 	int	a = this->_rpn.top();
 	if (a == 0)
-		throw std::runtime_error("Error: Division by zero.");
+		throw std::runtime_error("Error");
 	this->_rpn.pop();
 
 	int	div = this->_rpn.top() / a;
@@ -75,6 +75,7 @@ void	RPN::division(void) {
 
 void	RPN::checkOperator(char *exp) {
 	size_t	i = 0;
+
 	operationFunct fct[4] = {
 		&RPN::addition,
 		&RPN::difference,
@@ -94,35 +95,45 @@ void	RPN::checkOperator(char *exp) {
 	}
 }
 
-void	RPN::showResult(void)const {
-	if (this->_rpn.size() != 1)
-		throw std::runtime_error("Error: Invalid");
-	std::cout << this->_rpn.top() << std::endl;
-}
-
 static bool isOperator(char c) {
     return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
+void	RPN::execExpression(char *expr) {
+	int i = -1, nb = 0, op = 0;
+
+	while (expr[++i]) {
+		if (isspace(expr[i]))
+			continue;
+		while (expr[i] == '0' && isdigit(expr[i + 1]))
+			i++;
+		if (isOperator(expr[i])) {
+			op++;
+			checkOperator(expr + i);
+		}
+		else if (isdigit(expr[i])) {
+			nb++;
+			this->_rpn.push(expr[i] - 48);
+		}
+	}
+	if (nb != op + 1)
+		throw std::runtime_error("Error");
+}
+
+void	RPN::showResult(void)const {
+	if (this->_rpn.size() != 1)
+		throw std::runtime_error("Error");
+	std::cout << this->_rpn.top() << std::endl;
+}
+
 void	RPN::checkExpression(char *exp) {
-	size_t	i = 0, nb = 0, op = 0;
+	size_t	i = 0;
 
 	while (exp[i]) {
 		if (!(isdigit(exp[i]) || isspace(exp[i]) || isOperator(exp[i])))
-			throw std::runtime_error("Error: Invalid character detected in expression.");
-		else if (isOperator(exp[i])) {
-			op++;
-			checkOperator(exp + i);
-		}
-		else if (isdigit(exp[i])){
-			nb++;
-			if(exp[i+1] && isdigit(exp[i+1]))
-				throw std::runtime_error("Error: we must have digits not numbers.");
-			this->_rpn.push(exp[i] - 48);
-		}
+			throw std::runtime_error("Error");
+		if (isdigit(exp[i]) && exp[i] != '0' && isdigit(exp[i + 1])) 
+			throw std::runtime_error("Error");
 		i++;
 	}
-	if (nb != op + 1)
-		throw std::runtime_error("Error: Invalid :(");
 }
-

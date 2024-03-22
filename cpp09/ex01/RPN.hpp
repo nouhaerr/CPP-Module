@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:15 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/21 02:58:09 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 05:37:00 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <cstdlib>
 # include <cstdlib>
 # include <stdbool.h>
+#include <sstream>
 # include <iterator>
 
 class RPN
@@ -41,6 +42,7 @@ class RPN
 		~RPN();
 
 		void	checkExpression(char *exp);
+		void	execExpression(char *expr);
 		void	showResult(void)const;
 };
 
