@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 10:33:03 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 11:11:50 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,17 @@ void	BitcoinExchange::execute(const char* inputfile) {
 		throw std::ios_base::failure("Error: could not open file.");
 	else
 	{
+		bool check = false;
 		std::getline(f, line);
 		if (line.compare("date | value"))
-			throw std::runtime_error("Error: wrong header format.");
+			check = true;
 		while (std::getline(f, line))
 		{
 			try {
+				if (check == true) {
+					check = false;	
+					throw std::runtime_error("Error: wrong header format.");
+				}
 				std::pair<std::string, double> pair = parseInput(line);
 				double ex = getExchange(pair.first);
 				if (ex < 0)
