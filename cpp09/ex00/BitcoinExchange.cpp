@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 04:54:59 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 10:33:03 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	BitcoinExchange::execute(const char* inputfile) {
 				std::pair<std::string, double> pair = parseInput(line);
 				double ex = getExchange(pair.first);
 				if (ex < 0)
-					throw std::runtime_error("Error: wrong input.");
+					throw std::runtime_error("Error: Invalid.");
 				else
 					std::cout << pair.first << " => " << pair.second << " = "
 							<< (pair.second * ex) << std::endl;
@@ -155,7 +155,6 @@ static void	isValidDate(const std::string &date) {
 std::pair<std::string, double>	BitcoinExchange::parseInput(std::string line) {
 	
 	size_t delimiter = line.find('|');
-	char	*p;
 
 	if (line[0] == '|' || line[line.length() - 1] == '|' || delimiter == std::string::npos)
 		throw std::runtime_error("Error: bad input => " + line);
@@ -168,7 +167,7 @@ std::pair<std::string, double>	BitcoinExchange::parseInput(std::string line) {
 		throw std::runtime_error("Error: not an int or float value");
 
 	std::string key = line.substr(0, delimiter - 1);
-	double value = strtod(valueStr.c_str(), &p); // verifie the p
+	double value = strtod(valueStr.c_str(), NULL);
 	isValidDate(key);
 	isValidValue(value, valueStr);
 	return std::make_pair(key, value);

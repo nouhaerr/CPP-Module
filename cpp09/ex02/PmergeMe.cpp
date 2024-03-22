@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:43:21 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 09:49:01 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 10:52:02 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ void	PmergeMe::_pairwiseVecNbrs(){
 	size_t	i = 0;
 
 	if (this->_vec.size() % 2 != 0) {
+		if (this->_vec.size() == 1)
+			return ;
 		this->_stragglerVec = this->_vec.back();
 		this->_vec.pop_back();
 		this->_vecOdd = true;
@@ -123,6 +125,8 @@ void	PmergeMe::_pairwiseDeckNbrs(){
 	size_t	i = 0;
 
 	if (this->_deck.size() % 2 != 0) {
+		if (this->_deck.size() == 1)
+			return ;
 		this->_stragglerDeck = this->_deck.back();
 		this->_deck.pop_back();
 		this->_deckOdd = true;
@@ -138,7 +142,11 @@ void	PmergeMe::_pairwiseDeckNbrs(){
 
 void	PmergeMe::_sortVecNbrs() {
 	size_t size = this->_vecPairs.size(), i = -1;
-	
+
+	if (this->_vec.size() == 1) {
+		this->_sortedVec.push_back(this->_vec.back());
+		return ;
+	}
 	mergeSort(this->_vecPairs, 0, size - 1);
 	while (++i < size)
 		this->_sortedVec.push_back(this->_vecPairs[i].first);
@@ -160,7 +168,11 @@ void	PmergeMe::_insertVecOdd() {
 
 void	PmergeMe::_sortDeckNbrs() {
 	size_t size = this->_deckPairs.size(), i = -1;
-
+	
+	if (this->_deck.size() == 1) {
+		this->_sortedDeck.push_back(this->_deck.back());
+		return ;
+	}
 	mergeSort(this->_deckPairs, 0, size - 1);
 	while (++i < size)
 		this->_sortedDeck.push_back(this->_deckPairs[i].first);
