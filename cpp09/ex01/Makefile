@@ -6,13 +6,13 @@
 #    By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 21:53:40 by nerrakeb          #+#    #+#              #
-#    Updated: 2024/03/21 04:53:48 by nerrakeb         ###   ########.fr        #
+#    Updated: 2024/03/23 05:17:27 by nerrakeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g3
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 
 CSRCS = main.cpp \
 		RPN.cpp \

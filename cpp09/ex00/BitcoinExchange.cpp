@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 11:11:50 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/23 05:10:55 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	BitcoinExchange::execute(const char* inputfile) {
 
 	f.open(inputfile);
 	if (!f.is_open())
-		throw std::ios_base::failure("Error: could not open file.");
+		throw std::runtime_error("Error: could not open file.");
 	else
 	{
 		bool check = false;
@@ -66,14 +66,18 @@ void	BitcoinExchange::execute(const char* inputfile) {
 		while (std::getline(f, line))
 		{
 			try {
-				if (check == true) {
-					check = false;	
-					throw std::runtime_error("Error: wrong header format.");
+				try{
+					if (check == true) {
+						check = false;	
+						throw std::runtime_error("Error: wrong header format.");
+					}
+				} catch (std::exception &e){
+					std::cerr << e.what() << std::endl;
 				}
 				std::pair<std::string, double> pair = parseInput(line);
 				double ex = getExchange(pair.first);
 				if (ex < 0)
-					throw std::runtime_error("Error: Invalid.");
+					throw std::runtime_error("Error: Invalid date (Bitcoin doesn't exist) => " + pair.first);
 				else
 					std::cout << pair.first << " => " << pair.second << " = "
 							<< (pair.second * ex) << std::endl;
@@ -120,11 +124,11 @@ static void	isValidDate(const std::string &date) {
 	while (std::getline(ss, tok, '-'))
 		li.push_back(tok);
 	if (li.size() != 3)
-		throw std::runtime_error("Error: invalid date format.");
+		throw std::runtime_error("Error: bad date input  => " + date);
 	for (std::list<std::string>::iterator it = li.begin(); it != li.end(); it++)
 	{
 		if (!isNumeric(*it, "0123456789"))
-			throw std::runtime_error("Error: invalid date.");
+			throw std::runtime_error("Error: bad input => " + date);
 	}
 
 	std::list<std::string>::iterator iter = li.begin();
@@ -133,27 +137,27 @@ static void	isValidDate(const std::string &date) {
 	std::string day(*(++iter));
 
 	if (year.size() != 4 || month.size() != 2 || day.size() != 2)
-		throw std::runtime_error("Error: invalid date format.");
+		throw std::runtime_error("Error: bad date format => " + date);
 	int y;
 	std::istringstream(year) >> y;
 	if (y < 2009 || y > 2022)
-		throw std::runtime_error("Error: invalid date (check the year).");
+		throw std::runtime_error("Error: bad input (check the date year) => " + date);
 
 	int	d;
 	std::istringstream(day) >> d;
 	if (d <= 0 || d > 31)
-		throw std::runtime_error("Error: invalid date (check the day).");
+		throw std::runtime_error("Error: bad input (check the date day) => " + date);
 
 	int	m;
 	std::istringstream(month) >> m;
 	if (m <= 0 || m > 12)
-		throw std::runtime_error("Error: invalid date (check the month).");
+		throw std::runtime_error("Error: bad input (check the date month) => " + date);
 	if (month == "02" && !(y % 4) && d > 29)
-		throw std::runtime_error("Error: invalid date (A leap year but more than 366days!).");
+		throw std::runtime_error("Error: bad input (A leap year but more than 366days!) => " + date);
 	else if (month == "02" && y % 4 && d > 28)
-		throw std::runtime_error("Error: invalid date (Not a leap year but more than 365days).");
+		throw std::runtime_error("Error: bad input (Not a leap year but more than 365days) => " + date);
 	else if ((month == "03" || month == "08" || m == 10) && d > 30)
-		throw std::runtime_error("Error: invalid date.");
+		throw std::runtime_error("Error: bad input => " + date);
 
 }
 

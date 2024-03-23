@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:43:17 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 10:21:49 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/22 23:13:04 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ class PmergeMe {
 		
 		void	_pairwiseVecNbrs();
 		void	_pairwiseDeckNbrs();
-		void	mergeSort(std::vector<std::pair<int, int> >& vec, size_t left, size_t right);
-		void	mergeSort(std::deque<std::pair<int, int> >& deq, size_t left, size_t right);
+		void	_mergeSort(std::vector<std::pair<int, int> >& vec, size_t left, size_t right);
+		void	_mergeSort(std::deque<std::pair<int, int> >& deq, size_t left, size_t right);
 		void	_sortVecNbrs();
 		void	_sortDeckNbrs();
 		void	_insertVecOdd();
