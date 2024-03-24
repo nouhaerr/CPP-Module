@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 21:43:19 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/23 05:10:55 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/23 08:14:03 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ BitcoinExchange::BitcoinExchange(std::string filename) {
 	std::ifstream	ifile;
 	ifile.open(filename.c_str());
 	if (!ifile.is_open())
-		throw std::ios_base::failure("Error: could not open file.");
+		throw std::runtime_error("Error: could not open file.");
 	else {
 		std::string	line;
 		std::getline(ifile, line);
@@ -59,21 +59,18 @@ void	BitcoinExchange::execute(const char* inputfile) {
 		throw std::runtime_error("Error: could not open file.");
 	else
 	{
-		bool check = false;
-		std::getline(f, line);
-		if (line.compare("date | value"))
-			check = true;
+		try{
+			std::getline(f, line);
+			if (f.eof() && line.empty())
+				throw std::runtime_error("Error: Empty file.");
+			if (line.compare("date | value") != 0)
+				throw std::runtime_error("Error: Invalid Header.");
+		}catch (const std::runtime_error &e){
+			std::cerr << e.what() << std::endl;	
+		}
 		while (std::getline(f, line))
 		{
 			try {
-				try{
-					if (check == true) {
-						check = false;	
-						throw std::runtime_error("Error: wrong header format.");
-					}
-				} catch (std::exception &e){
-					std::cerr << e.what() << std::endl;
-				}
 				std::pair<std::string, double> pair = parseInput(line);
 				double ex = getExchange(pair.first);
 				if (ex < 0)

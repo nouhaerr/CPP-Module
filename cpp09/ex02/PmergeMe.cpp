@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:43:21 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/23 03:17:59 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/23 13:14:39 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,33 @@ static bool	isNumeric(const char *av, const std::string &seq) {
 	return str.find_first_not_of(seq) == std::string::npos;
 }
 
+#include <sstream>
+
 void	PmergeMe::checkArgs(int ac, char **av) {
 	int	i = 1;
+	int nb = 0;
+
+	std::string buf;
 
 	while (i < ac) {
-		if (!isNumeric(av[i], "0123456789"))
+		if (!isNumeric(av[i], " 0123456789"))
 			throw std::runtime_error("Error");
-		this->_vec.push_back(atoi(av[i]));
-		this->_deck.push_back(atoi(av[i]));
+
+		std::istringstream iss(av[i]);
+        while (getline(iss, buf, ' ')) {
+            if (!buf.empty()) {
+        		std::istringstream(buf) >> nb;
+				this->_vec.push_back(nb);
+				this->_deck.push_back(nb);
+			}
+		}
 		i++;
 	}
 }
 
 void	PmergeMe::_displaySortedNbrs(const std::string &msg) {
+	if (this->_deck.empty() && this->_vec.empty())
+		throw std::runtime_error("Error");
 	if (msg == "BEFORE") {
 		std::cout << "Before: ";
 		for (std::deque<int>::iterator j = this->_deck.begin(); j != this->_deck.end(); j++)
@@ -83,8 +97,8 @@ void	PmergeMe::mergeSortInsertion(){
 	_sortDeckNbrs();
 	std::clock_t	deckEnd = std::clock();
 	_displaySortedNbrs("AFTER");
-	double	vecDuration = ((double) (vecEnd - vecStart) / CLOCKS_PER_SEC) * 1000000;
-	double	deckDuration = ((double) (deckEnd - deckStart) / CLOCKS_PER_SEC) * 1000000;
+	double	vecDuration = ((double) (vecEnd - vecStart) / CLOCKS_PER_SEC) * 1000000.0;
+	double	deckDuration = ((double) (deckEnd - deckStart) / CLOCKS_PER_SEC) * 1000000.0;
 	std::cout << "Time to process a range of " << this->_sortedVec.size() << " elements with std::vector : "
 	<< vecDuration << " µs" << "\n";
 	std::cout << "Time to process a range of " << this->_sortedDeck.size() << " elements with std::deque : "

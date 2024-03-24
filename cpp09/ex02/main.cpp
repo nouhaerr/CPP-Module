@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:42:50 by nerrakeb          #+#    #+#             */
-/*   Updated: 2024/03/22 09:03:48 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2024/03/23 05:42:29 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	main(int ac, char **av) {
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
+
+	return 0;
 }
 
